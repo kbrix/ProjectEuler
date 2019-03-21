@@ -279,18 +279,5 @@ namespace UtilityTests
             var result = Utility.Mobius(1778279410);
             Assert.Equal(-1, result);
         }
-
-        [Fact]
-        public void TestMo()
-        {
-            var result = MoreUtility.MobiusSieve(75); // 0:75 (\mu(0):=0)
-            var value = new int[]
-            {
-                0, 1, -1, -1, 0, -1, 1, -1, 0, 0, 1, -1, 0, -1, 1, 1, 0, -1, 0, -1, 0, 1, 1, -1, 0, 0, 1, 0, 0, -1, -1, -1,
-                0, 1, 1, 1, 0, -1, 1, 1, 0, -1, -1, -1, 0, 0, 1, -1, 0, 0, 0, 1, 0, -1, 0, 1, 0, 1, 1, -1, 0, -1, 1, 0,
-                0, 1, -1, -1, 0, 1, -1, -1, 0, -1, 1, 0
-            };
-            CollectionAssert.AreEqual(value, result);
-        }
     }
 }

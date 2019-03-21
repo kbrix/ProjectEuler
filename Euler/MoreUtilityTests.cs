@@ -1,12 +1,34 @@
 using System;
 using System.Linq;
+using NUnit.Framework;
 using Xunit;
+using Assert = Xunit.Assert;
 
 namespace euler
 {
     public class MoreUtilityTests
     {
-        [Theory]
+        [Fact]
+        public void MobiusSieve_SmallNumberOfDice_ReturnsArrayOfValues()
+        {
+            var result = MoreUtility.MobiusSieve(75); // 0:75 (\mu(0):=0)
+            var value = new int[]
+            {
+                0, 1, -1, -1, 0, -1, 1, -1, 0, 0, 1, -1, 0, -1, 1, 1, 0, -1, 0, -1, 0, 1, 1, -1, 0, 0, 1, 0, 0, -1, -1,
+                -1, 0, 1, 1, 1, 0, -1, 1, 1, 0, -1, -1, -1, 0, 0, 1, -1, 0, 0, 0, 1, 0, -1, 0, 1, 0, 1, 1, -1, 0, -1, 1,
+                0, 0, 1, -1, -1, 0, 1, -1, -1, 0, -1, 1, 0
+            };
+            CollectionAssert.AreEqual(value, result);
+        }
+        
+        [Fact] // 42 sec
+        public void MobiusSieve_VeryLargeNumberOfDice_ReturnsLastValueInArray()
+        {
+            var result = MoreUtility.MobiusSieve((int)1e9);
+            Assert.Equal(0, result.Last());
+        }
+        
+        [Xunit.Theory]
         [InlineData(1, 1)]
         [InlineData(64, 2)]
         [InlineData(729, 3)]
@@ -76,29 +98,16 @@ namespace euler
         [InlineData(85525504, 67)]
         [InlineData(85766121, 68)]
         [InlineData(96040000, 69)]
-        public void ttt(int n, int x)
+        public void SolutionForArbitraryNumberOfDice_SmallNumberOfDice_ReturnsResult(int n, int x)
         {
-            var result = MoreUtility.Mp(n);
+            var result = MoreUtility.SolutionForArbitraryNumberOfDice(n);
             Assert.Equal(x, result);
         }
 
-        [Theory]
-        [InlineData(120996588, 0)] // 5 sec
-        //[InlineData(159054145, 0)]
-        //[InlineData(222284926, -1)]
-        //[InlineData(342230032, 0)] // 13 sec
-        //[InlineData(628716714, -1)] // 26 sec 
-        //[InlineData(1778279410, -1)]  // 1 min 20 sec
-        public void k(int n, int x)
-        {
-            var result = MoreUtility.MobiusSieve(n);
-            Assert.Equal(x, result.Last());
-        }
-
         [Fact] // 55 sec
-        public void s()
+        public void Solution_SolutionForProblem641_ReturnsResult()
         {
-            var result = MoreUtility.MpBIG();
+            var result = MoreUtility.Solution();
             Assert.Equal(793525366, result);
         }
     }
