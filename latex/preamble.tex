@@ -1,0 +1,126 @@
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}   
+\geometry{
+ a4paper,
+ left = 20mm,
+ right = 20mm,
+ top = 20mm,
+ bottom = 20mm,
+ margin = 1in,
+ heightrounded,
+ headheight = 110pt
+}
+
+\usepackage{amsmath, amsthm, amssymb}
+\swapnumbers % Switch number/label style
+% https://tex.stackexchange.com/questions/32100/what-does-each-ams-package-do
+
+\usepackage{mathtools} 
+% https://tex.stackexchange.com/questions/46308/oversized-underbraces-label-causes-unwanted-spacing
+% used with \mathclap, \mathllap, \mathrlap, fixes spacing, also use \strut, example: \left( x-1 \right) \underbrace{ \left( ? \right) }_{ \mathclap{ \text{ \strut what is this? } } }
+
+%\usepackage{bbm} 
+% http://tug.ctan.org/macros/latex/contrib/bbm/bbm.pdf
+
+%\usepackage{enumitem}
+% http://www.texnia.com/archive/enumitem.pdf
+
+
+%\usepackage[hang]{footmisc} 
+%\setlength\footnotemargin{10pt}
+% https://tex.stackexchange.com/questions/126877/how-can-i-align-a-multiple-line-footnote-text-right-to-the-footnote-mark
+
+\usepackage{mathrsfs} % \mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+% https://www.stat.colostate.edu/~vollmer/pdfs/typesetting-script.pdf
+% https://www.stat.colostate.edu/~vollmer/pdfs/typesetting-script.pdf
+
+%\usepackage{marvosym} % \Lightning in text-mode
+% http://texdoc.net/texmf-dist/doc/fonts/marvosym/marvodoc.pdf
+
+
+% Customize page header and footer ------------------
+\usepackage{fancyhdr} 
+% https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers#Customizing_with_fancyhdr
+
+\usepackage{lastpage}
+% https://tex.stackexchange.com/questions/227/how-can-i-add-page-of-on-my-document
+
+% setting...
+\pagestyle{fancy}
+\lhead{~}
+\chead{\nouppercase{\leftmark}} % casing
+\rhead{~} 
+\lfoot{Kristoffer Brix}
+\cfoot{~}
+\rfoot{Page \thepage}
+%\rfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+% ...
+
+\fancypagestyle{plain}{
+    \fancyhead{}
+    \renewcommand{\headrulewidth}{Opt}
+}
+% https://tex.stackexchange.com/questions/86708/how-do-i-make-a-header-for-whole-document
+% FINISH: Customize page header and footer ----------
+
+% Misc. settings --------------
+\renewcommand{\baselinestretch}{1.15} %spacing between lines
+\usepackage[parfill]{parskip} %removes indentation
+\swapnumbers
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\addtolength{\jot}{4.5pt} % more spacing between math... default is 3pt
+% ----------------------------
+
+% Caption settings -------------------------------
+\usepackage[font=small, labelfont=bf]{caption}
+
+\usepackage[hypertexnames=false]{hyperref}  
+% https://tex.stackexchange.com/questions/823/remove-ugly-borders-around-clickable-cross-references-and-hyperlinks
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+} 
+
+% FINSISH caption settings ----------------------
+
+
+% https://www.tug.org/TUGboat/tb27-2/tb87syropoulos.pdf
+%\usepackage{phaistos} % \PHdove \PHtunny
+
+% https://tex.stackexchange.com/questions/191572/beginframed-with-background-color
+\usepackage{mdframed}
+
+% for \FloatBarrier
+%\usepackage{placeins}
+
+%\usepackage{printlen} 
+% \printlength\textwidth \printlength\textheight https://tex.stackexchange.com/questions/39383/determine-text-width
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN DONE
+%\iffalse % HERE
+\usepackage{seqsplit}
+\usepackage[color]{showkeys}
+\definecolor{refkey}{rgb}{0, 0, 1}
+\definecolor{labelkey}{rgb}{0, 0, 1}
+
+\renewcommand*\showkeyslabelformat[1]{\normalfont\large\ttfamily(#1)}  
+
+\usepackage{xstring}
+
+\renewcommand*\showkeyslabelformat[1]{%
+\noexpandarg%
+% instead of \textvisiblespace you can also put in ~
+% if you want to keep a plain space at space characters
+\StrSubstitute{\(\{\)#1\(\}\)}{ }{\textvisiblespace}[\TEMP]%
+\parbox[t]{\marginparwidth}{\raggedright\normalfont\small\ttfamily\expandafter\seqsplit\expandafter{\TEMP}}}
+%https://tex.stackexchange.com/questions/148579/tweak-showlabels-showkeys-wrap-the-label
+%\fi %HERE 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN DONE

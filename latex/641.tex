@@ -1,0 +1,105 @@
+\documentclass[main.tex]{subfiles}
+
+\onlyinsubfile{\input{preamble}}     
+
+\onlyinsubfile{\usepackage{xr}}
+% https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf
+
+\onlyinsubfile{     
+ \geometry{
+   reset,
+   a4paper,
+   textwidth=5cm,textheight=5cm,
+   % exact values will vary by template
+   paperwidth=453pt+0.8cm,
+   paperheight=706pt+2cm, 
+   % above values found using \usepackage{printlen} \printlength\textwidth \printlength\textheight https://tex.stackexchange.com/questions/39383/determine-text-width
+   text={453pt,706pt}, % without this line, errors occur
+   %marginparwidth = 2cm,
+   marginparsep = -2.5cm
+ }
+} 
+
+\begin{document}
+ 
+\section{Problem 641}
+
+\begin{mdframed}[backgroundcolor = lightgray!10]
+Consider a row of $n$ dice all showing $1$.
+
+First turn every second die, $(2, 4, 6, \dots)$, so that the number showing is increased by $1$. Then turn every third die. The sixth die will now show a $3$. Then turn every fourth die and so on until every $n$'th die (only the last die) is turned. If the die to be turned is showing a 6 then it is changed to show a 1.
+
+Let $f(n)$ be the number of dice that are showing a $1$ when the process finishes. You are given $f(100) = 2$ and $f(10^8) = 69$.
+
+
+Find $f(10^{36})$.
+\end{mdframed}
+
+Upon inspection, one sees that the problem is asking us to compute
+%
+\begin{align}
+ \# \{ k \in \{1, \dots, n \} \mid
+ \sigma(k) \text{ mod } 6 = 1\},
+\end{align}
+%
+where $\sigma: \mathbb N \to \mathbb N$ is the function that counts how many divisors a given integer has, e.g. $\sigma(12) = 6$ and $\sigma(p) = 2$, where $p$ is a prime number. 
+
+In words, we are tasked to find numbers satisfying 
+%
+\begin{align}
+ \sigma(k) = 1, 7, 13, 19, \dots
+\end{align}
+
+Since the above numbers are all odd, we may search through the squares:
+%
+\begin{align}
+ \# \{ k = \widetilde k^2 \in \{1, \dots, n \} \mid
+ \sigma(k) \text{ mod } 6 = 1\},
+\end{align}
+%
+A quick and brute-force approach easily yields the results given in the table below. 
+
+Upon inspecting the table, we see that the $n$ of interest has representation
+%
+\begin{align}
+ n = a^6 b^4,
+ \qquad b = \prod_{i=1}^{2m} p_i,
+ \qquad a \in \mathbb N,
+ \qquad m \in \mathbb N,
+ \qquad p_i\text{'s are distinct is primes}.
+\end{align}
+%
+Most of the values in the table fit the representation above. A few needs to adjusted slightly, e.g. $n = 85525504 = 2^{10} \cdot 17^4 = 2^6 \cdot (2 \cdot 17)^4$. Note that the numbers whose prime factorization contains an even number of distinct primes are those numbers whose M\"{o}bius value is equal to one. 
+
+For each value of $b$, there are
+%
+\begin{align}
+ \frac{n^{1/4}}{b^{3/2}}
+\end{align}
+%
+choices for $a$, because $a^6 b^4 \leq n$ must hold. If we set $b=n^{\frac{1}{6}}$ in the above, then we get $1$.
+
+Let $\mu: \mathbb N \to \{-1, 0, 1\}$ be the M\"{o}bius function and let $M_+: \mathbb R_+ \to \mathbb N$, given by
+%
+\begin{align}
+ M_+(x) := \sum_{i=1}^{\lfloor x \rfloor} \mu^2(i),
+\end{align}
+%
+be the function that counts the natural numbers $i \leq \lfloor x \rfloor$ such that $\mu(i) = 1$.
+
+Then
+%
+\begin{align}
+ f(n)
+ =
+ \sum_{a = 1}^{n^{1/6}}
+ M_+ \left(
+ \frac{n^{1/4}}{a^{3/2}}
+ \right).
+\end{align}
+%
+The values of M\"{o}bius function can easily be computed using a sieve (the Sieve of Eratosthenes works fine), and the rest is trivial. 
+
+\input{641_table.tex}                
+
+\end{document}
