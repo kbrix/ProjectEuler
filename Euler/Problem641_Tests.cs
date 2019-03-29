@@ -1,34 +1,10 @@
-using System;
-using System.Linq;
-using NUnit.Framework;
 using Xunit;
-using Assert = Xunit.Assert;
 
 namespace euler
 {
-    public class MoreUtilityTests
+    public class Problem641_Tests
     {
-        [Fact]
-        public void MobiusSieve_SmallNumberOfDice_ReturnsArrayOfValues()
-        {
-            var result = MoreUtility.MobiusSieve(75); // 0:75 (\mu(0):=0)
-            var value = new int[]
-            {
-                0, 1, -1, -1, 0, -1, 1, -1, 0, 0, 1, -1, 0, -1, 1, 1, 0, -1, 0, -1, 0, 1, 1, -1, 0, 0, 1, 0, 0, -1, -1,
-                -1, 0, 1, 1, 1, 0, -1, 1, 1, 0, -1, -1, -1, 0, 0, 1, -1, 0, 0, 0, 1, 0, -1, 0, 1, 0, 1, 1, -1, 0, -1, 1,
-                0, 0, 1, -1, -1, 0, 1, -1, -1, 0, -1, 1, 0
-            };
-            CollectionAssert.AreEqual(value, result);
-        }
-        
-        [Fact] // 42 sec
-        public void MobiusSieve_VeryLargeNumberOfDice_ReturnsLastValueInArray()
-        {
-            var result = MoreUtility.MobiusSieve((int)1e9);
-            Assert.Equal(0, result.Last());
-        }
-        
-        [Xunit.Theory]
+        [Theory]
         [InlineData(1, 1)]
         [InlineData(64, 2)]
         [InlineData(729, 3)]
@@ -100,14 +76,14 @@ namespace euler
         [InlineData(96040000, 69)]
         public void SolutionForArbitraryNumberOfDice_SmallNumberOfDice_ReturnsResult(int n, int x)
         {
-            var result = MoreUtility.SolutionForArbitraryNumberOfDice(n);
+            var result = Problem641.SolutionForArbitraryNumberOfDice(n);
             Assert.Equal(x, result);
         }
 
         [Fact] // 55 sec
         public void Solution_SolutionForProblem641_ReturnsResult()
         {
-            var result = MoreUtility.Solution();
+            var result = Problem641.Solution();
             Assert.Equal(793525366, result);
         }
     }
