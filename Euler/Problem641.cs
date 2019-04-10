@@ -28,7 +28,7 @@ namespace euler
 
             for (int i = 0; i < m.Length; i++)
             {
-                if (m[i] != 1)
+                if (m[i] == -1)
                 {
                     m[i] = 0;
                 }
