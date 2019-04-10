@@ -35,10 +35,13 @@ namespace euler
             {
                 for (int j = 100; j <= 999; j++)
                 {
-                    var x = i * j;
-                    if (IsPalindrome(x))
+                    if (i <= j)
                     {
-                        palindromes.Add(x);
+                        var x = i * j;
+                        if (IsPalindrome(x))
+                        {
+                            palindromes.Add(x);
+                        }
                     }
                 }
             }
