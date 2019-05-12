@@ -6,3 +6,7 @@ Euler/obj/
 euler\.sln\.DotSettings\.user
 
 \.idea/
+*.orig
+.vs/
+UpgradeLog.htm
+Backup/euler.sln

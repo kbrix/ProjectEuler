@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using euler.Utility;
 
 namespace euler
 {
@@ -34,7 +35,7 @@ namespace euler
                 }
             }
 
-            var mCumulativeSum = MiscellaneousUtility.CumulativeSum(m);
+            var mCumulativeSum = ArrayExtensions.CumulativeSum(m);
 
             var index = Enumerable.Range(1, (int) n1).Select(a => n2 / (decimal) Math.Pow(a, 3d / 2));
             var roundIndex = index.Select(x => (int) Math.Round(x, 6));

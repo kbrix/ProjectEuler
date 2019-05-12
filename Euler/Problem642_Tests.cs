@@ -10,7 +10,7 @@ namespace euler
         [InlineData(10000, 10118280)] //10^4
         [InlineData(100000, 793111753)] //10^5
         [InlineData(1000000, 64937323262)] //10^6, 2.5 sec
-        [InlineData(10000000, 5494366736156)] //10^7, 1 min 4 sec
+        //[InlineData(10000000, 5494366736156)] //10^7, 1 min 4 sec
         //[InlineData(100000000, 476001412898167)] //10^8, 28 min 58 sec
         public void SolutionForArbitraryInput_TestExample_ReturnsResult(long n, long value)
         {
@@ -25,8 +25,8 @@ namespace euler
         [InlineData(10000, 10118280)] //10^4
         [InlineData(100000, 793111753)] //10^5
         [InlineData(1000000, 64937323262)] //10^6, 2.5 sec
-        [InlineData(10000000, 5494366736156)] //10^7, 1 min 6 sec
-        [InlineData(100000000, 476001412898167)] //10^8, 29 min 36 sec
+        //[InlineData(10000000, 5494366736156)] //10^7, 1 min 6 sec
+        //[InlineData(100000000, 476001412898167)] //10^8, 29 min 36 sec
         public void SolutionForArbitraryInputUsingSieve_TestExample_ReturnsResult(long n, long value)
         {
             var result = Problem642.SolutionForArbitraryInputUsingSieve(n);
