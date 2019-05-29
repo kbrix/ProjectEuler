@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace euler
 {
+    // Largest palindrome product, https://projecteuler.net/problem=4
     public static class Problem4
     {
         public static string Reverse(string s)
