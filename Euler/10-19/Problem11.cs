@@ -4,6 +4,7 @@ using euler.Utility;
 
 namespace euler
 {
+    // Largest product in a grid, https://projecteuler.net/problem=11
     public static class Problem11
     {
         private static readonly int[,] data =
