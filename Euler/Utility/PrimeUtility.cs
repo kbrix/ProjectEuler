@@ -1,15 +1,34 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
-using System.Threading.Tasks;
 using euler.Utility;
 
 namespace euler
 {
     public static class PrimeUtility
     {
+        public static bool IsPrime(this int x)
+        {
+            if (x <= 1)
+                return false;
+            
+            if (x == 2)
+                return true;
+
+            if (x % 2 == 0)
+                return false;
+
+            for (int i = 3; i*i <= x; i += 2)
+            {
+                if (x % i == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public static List<int> PrimeSieveOfEratosthenes(this long n) 
         {
             bool[] isPrime = new bool[n+1];
