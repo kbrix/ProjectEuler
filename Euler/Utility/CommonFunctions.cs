@@ -19,5 +19,7 @@ namespace euler.Utility
         {
             return !(n >= k && k >= 0) ? 0 : n.Factorial() / (k.Factorial() * (n - k).Factorial());
         }
+        
+        
     }
 }
