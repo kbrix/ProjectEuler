@@ -2,6 +2,8 @@ using System;
 
 namespace euler
 {
+    // Maximum path sum I
+    // https://projecteuler.net/problem=18
     public class Problem18
     {
         public static int GeneralizedSolution(int[,] data)
