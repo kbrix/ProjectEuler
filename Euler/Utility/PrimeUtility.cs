@@ -114,6 +114,9 @@ namespace euler
             return (n > 1) ? n : x;
         }
 
+        /// <summary>
+        /// Returns factors/divisors of a number
+        /// </summary>
         public static IEnumerable<int> Factorize(this int n)
         {
             var factors = new List<int>();
@@ -128,6 +131,9 @@ namespace euler
             return factors;
         }
         
+        /// <summary>
+        /// Returns number of factors/divisors of a number
+        /// </summary>
         public static int FactorCounter(this int n)
         {
             var count = 0;
@@ -142,7 +148,32 @@ namespace euler
             return count;
         }
 
-        public static int DivisorFunction(this int n)
+        public static List<int> DivisorFunction(this int n)
+        {
+            var max = (int)Math.Sqrt(n) + 1;
+            var powers = new List<int>();
+            
+            for (int i = 2; i < max; i++)
+            {
+                while (n > 1)
+                {
+                    var counter = 0;
+                    
+                    while (n % i == 0)
+                    {
+                        n = n / i;
+                        counter++;
+                    }
+                    
+                    powers.Add(counter);
+
+                    i++;
+                }
+            }
+            return powers;
+        }
+        
+        public static int GetNumberOfDivisors(this int n)
         {
             var max = (int)Math.Sqrt(n) + 1;
             var powers = new List<int>();

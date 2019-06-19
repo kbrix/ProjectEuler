@@ -162,7 +162,7 @@ namespace euler
             var result = PrimeUtility.LargestPrimeFactorUsingSieve(n, p);
             Assert.Equal(value, result);
         }
-
+        
         [Fact]
         public void Factorize_Number_ReturnsFactors()
         {
@@ -171,11 +171,37 @@ namespace euler
             
             Assert.Equal(factors, result);
         }
-
+        
         [Fact]
-        public void DivisorFunction_Number_ReturnsNumberOfDivisors()
+        public void Factorize1_Number_ReturnsFactors()
         {
-            var result = 28.DivisorFunction();
+            var factors = new List<int>(){ 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110, 220 };
+            var result = 220.Factorize();
+            
+            Assert.Equal(factors, result);
+        }
+        
+        [Fact]
+        public void Factorize2_Number_ReturnsFactors()
+        {
+            var factors = new List<int>(){ 1, 2, 4, 71, 142, 284 };
+            var result = 284.Factorize();
+            
+            Assert.Equal(factors, result);
+        }
+        
+        [Fact]
+        public void FactorCounter_Number_ReturnsNumberOfDivisors()
+        {
+            var result = 28.FactorCounter();
+            
+            Assert.Equal(6, result);
+        }
+        
+        [Fact]
+        public void GetNumberOfDivisors_Number_ReturnsNumberOfDivisors()
+        {
+            var result = 28.GetNumberOfDivisors();
             
             Assert.Equal(6, result);
         }

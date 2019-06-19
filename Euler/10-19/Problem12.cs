@@ -7,7 +7,8 @@ namespace euler
         public static int GeneralizedSolution(int d)
         {
             var n = 1;
-            var numberOfDivisors = n.Factorize().Count();
+            //var numberOfDivisors = n.Factorize().Count();
+            var numberOfDivisors = n.GetNumberOfDivisors();
 
             var triangleNumber = new int();
             
@@ -15,7 +16,7 @@ namespace euler
             {
                 n++;
                 triangleNumber = n * (n + 1) / 2;
-                numberOfDivisors = triangleNumber.DivisorFunction();
+                numberOfDivisors = triangleNumber.GetNumberOfDivisors();
             }
 
             return triangleNumber;
