@@ -117,18 +117,35 @@ namespace euler
         /// <summary>
         /// Returns factors/divisors of a number
         /// </summary>
-        public static IEnumerable<int> Factorize(this int n)
+        public static IEnumerable<int> Divisors(this int n)
         {
-            var factors = new List<int>();
+            var divisors = new List<int>();
 
             for (int i = 1; i <= n; i++)
             {
                 if (n % i == 0)
                 {
-                    factors.Add(i);
+                    divisors.Add(i);
                 }
             }
-            return factors;
+            return divisors;
+        }
+        
+        /// <summary>
+        /// Returns proper factors/divisors of a number
+        /// </summary>
+        public static IEnumerable<int> ProperDivisors(this int n)
+        {
+            var properDivisors = new List<int>();
+
+            for (int i = 1; i < n; i++)
+            {
+                if (n % i == 0)
+                {
+                    properDivisors.Add(i);
+                }
+            }
+            return properDivisors;
         }
         
         /// <summary>

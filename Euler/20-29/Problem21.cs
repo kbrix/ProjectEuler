@@ -9,8 +9,8 @@ namespace euler
     {
         private static bool IsAmicableNumber(int n)
         {
-            var sumOfProperDivisors = n.Factorize().Sum() - n;
-            return sumOfProperDivisors != n && sumOfProperDivisors.Factorize().Sum() - sumOfProperDivisors == n;
+            var sumOfProperDivisors = n.ProperDivisors().Sum();
+            return sumOfProperDivisors != n && sumOfProperDivisors.Divisors().Sum() - sumOfProperDivisors == n;
         }
         
         public static int Solution()

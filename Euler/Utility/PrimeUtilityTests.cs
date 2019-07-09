@@ -164,30 +164,39 @@ namespace euler
         }
         
         [Fact]
-        public void Factorize_Number_ReturnsFactors()
+        public void Divisors_Number_ReturnsDivisors()
         {
-            var factors = new List<int>(){ 1, 2, 4, 7, 14, 28 };
-            var result = 28.Factorize();
+            var divisors = new List<int>(){ 1, 2, 4, 7, 14, 28 };
+            var result = 28.Divisors();
             
-            Assert.Equal(factors, result);
+            Assert.Equal(divisors, result);
         }
         
         [Fact]
-        public void Factorize1_Number_ReturnsFactors()
+        public void ProperDivisors_Number_ReturnsProperDivisors()
         {
-            var factors = new List<int>(){ 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110, 220 };
-            var result = 220.Factorize();
+            var properDivisors = new List<int>(){ 1, 2, 4, 7, 14 };
+            var result = 28.ProperDivisors();
             
-            Assert.Equal(factors, result);
+            Assert.Equal(properDivisors, result);
         }
         
         [Fact]
-        public void Factorize2_Number_ReturnsFactors()
+        public void Divisors_Number1_ReturnsDivisors()
         {
-            var factors = new List<int>(){ 1, 2, 4, 71, 142, 284 };
-            var result = 284.Factorize();
+            var divisors = new List<int>(){ 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110, 220 };
+            var result = 220.Divisors();
             
-            Assert.Equal(factors, result);
+            Assert.Equal(divisors, result);
+        }
+        
+        [Fact]
+        public void Divisors_Number2_ReturnsDivisors()
+        {
+            var divisors = new List<int>(){ 1, 2, 4, 71, 142, 284 };
+            var result = 284.Divisors();
+            
+            Assert.Equal(divisors, result);
         }
         
         [Fact]
