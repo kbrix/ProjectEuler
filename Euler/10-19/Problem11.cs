@@ -37,12 +37,13 @@ namespace euler
             {
                 return 0;
             }
-            
+
             var products = new List<long>();
-            
+
             for (int i = 0; i < a.Length - n + 1; i++)
             {
-                var x = a[i..i + n];
+                //var x = a[i..i + n];
+                var x = a.Skip(i).Take(n);
                 products.Add(x.Product());
             }
 
@@ -61,6 +62,6 @@ namespace euler
 
             return products.Max();
         }
-        
+
     }
 }

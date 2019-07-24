@@ -20,7 +20,8 @@ namespace euler
 
             for (int i = 0; i < l - n + 1; i++)
             {
-                var x = data[i .. i + n];
+                //var x = data[i .. i + n];
+                var x = data.Skip(i).Take(n);
                 products.Add(x.Product());
             }
 

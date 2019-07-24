@@ -19,6 +19,7 @@ namespace euler
                 names[i] = names[i].Trim('\"');
             }
 
+            var orderedNames = names.OrderBy(x => x);
             names = names.OrderBy(x => x).ToArray();
 
             var values = new int[names.Length];

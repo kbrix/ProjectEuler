@@ -40,12 +40,12 @@ namespace euler
             Assert.Equal(32, result);
         }
         
-        [Fact] //
-        public void SolutionForProblem642_ReturnsResult()
-        {
-            var result = Problem642.Solution();
-            //var value = 32;
-            Assert.Equal(32, result);
-        }
+        //[Fact] //
+        //public void SolutionForProblem642_ReturnsResult()
+        //{
+        //    var result = Problem642.Solution();
+        //    //var value = 32;
+        //    Assert.Equal(32, result);
+        //}
     }
 }
