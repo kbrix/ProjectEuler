@@ -36,5 +36,17 @@ namespace euler.Utility
             var result = Miscellaneous.ConvertLetterToNumber(x);
             Assert.Equal(y, result);
         }
+
+        [Theory]
+        [InlineData(23, 5)]
+        [InlineData(60, 6)]
+        [InlineData(64, 10)]
+        [InlineData(1111, 4)]
+        [InlineData(1000000001, 2)]
+        public void DigitSum_Number_ReturnsDigitSum(int x, int a)
+        {
+            var result = x.DigitSum();
+            Assert.Equal(a, result);
+        }
     }
 }
