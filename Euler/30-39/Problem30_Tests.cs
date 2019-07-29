@@ -7,8 +7,8 @@ namespace euler
         [Fact]
         public void ReturnsSolution()
         {
-            var result = Problem30.Solution(4);
-            Assert.Equal(1, result);
+            var result = Problem30.Solution(5);
+            Assert.Equal(443839, result);
         }
     }
 }

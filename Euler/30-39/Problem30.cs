@@ -14,7 +14,7 @@ namespace euler
 
             for (var i = (int)min; i <= (int)max; i++)
             {
-                var y = (int) Math.Pow(i.DigitSum(), 5);
+                var y = i.DigitSum(p);
 
                 if (i == y)
                 {
