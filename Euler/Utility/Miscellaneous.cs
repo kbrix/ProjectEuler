@@ -26,7 +26,7 @@ namespace euler.Utility
         /// </summary>
         /// <param name="x">A natural number.</param>
         /// <returns>The digit sum.</returns>
-        public static int DigitSum(this int x)
+        public static int DigitSum(this int x, int p = 1)
         {
             var sum = 0d;
 
@@ -34,7 +34,7 @@ namespace euler.Utility
 
             for (int n = 0; n <= max; n++)
             {
-                sum += 1 / Math.Pow(10, n) * ( x % Math.Pow(10, n + 1) - x % Math.Pow(10, n) );
+                sum += Math.Pow(1 / Math.Pow(10, n) * ( x % Math.Pow(10, n + 1) - x % Math.Pow(10, n) ), p);
             }
 
             return (int)sum;
