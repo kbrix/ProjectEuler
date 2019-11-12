@@ -38,14 +38,15 @@ namespace euler.Utility
         }
 
         [Theory]
-        [InlineData(23, 5)]
-        [InlineData(60, 6)]
-        [InlineData(64, 10)]
-        [InlineData(1111, 4)]
-        [InlineData(1000000001, 2)]
-        public void DigitSum_Number_ReturnsDigitSum(int x, int a)
+        [InlineData(23, 1, 5)]
+        [InlineData(60, 1, 6)]
+        [InlineData(64, 1, 10)]
+        [InlineData(1111, 1, 4)]
+        [InlineData(1000000001, 1, 2)]
+        [InlineData(121, 5, 34)]
+        public void DigitSum_Number_ReturnsDigitSum(int x, int p, int a)
         {
-            var result = x.DigitSum();
+            var result = x.DigitSum(p);
             Assert.Equal(a, result);
         }
     }

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using Xunit;
 
@@ -6,6 +8,88 @@ namespace euler.Utility
 {
     public class LinqExtensionsTests
     {
+        [Fact]
+        public void GetPermutationsWithRepetition_ListOfIntegers_ReturnsListOfPermutationsWithRepetition()
+        {
+            var set = new List<int> {1, 2, 3};
+
+            var result = new List<List<int>>()
+            {
+                new List<int>() { 1, 1, 1 },
+                new List<int>() { 1, 1, 2 },
+                new List<int>() { 1, 1, 3 },
+                new List<int>() { 1, 2, 1 },
+                new List<int>() { 1, 2, 2 },
+                new List<int>() { 1, 2, 3 },
+                new List<int>() { 1, 3, 1 },
+                new List<int>() { 1, 3, 2 },
+                new List<int>() { 1, 3, 3 },
+                new List<int>() { 2, 1, 1 },
+                new List<int>() { 2, 1, 2 },
+                new List<int>() { 2, 1, 3 },
+                new List<int>() { 2, 2, 1 },
+                new List<int>() { 2, 2, 2 },
+                new List<int>() { 2, 2, 3 },
+                new List<int>() { 2, 3, 1 },
+                new List<int>() { 2, 3, 2 },
+                new List<int>() { 2, 3, 3 },
+                new List<int>() { 3, 1, 1 },
+                new List<int>() { 3, 1, 2 },
+                new List<int>() { 3, 1, 3 },
+                new List<int>() { 3, 2, 1 },
+                new List<int>() { 3, 2, 2 },
+                new List<int>() { 3, 2, 3 },
+                new List<int>() { 3, 3, 1 },
+                new List<int>() { 3, 3, 2 },
+                new List<int>() { 3, 3, 3 },
+            };
+
+            var permutationsWithRepetition = LinqExtensions.GetPermutationsWithRepetition(set, 3);
+            Assert.Equal(Math.Pow(3, 3), permutationsWithRepetition.Count());
+            Assert.Equal(result, permutationsWithRepetition);
+        }
+
+        [Fact]
+        public void GetPermutationsWithRepetition_ListOfStrings_ReturnsListOfPermutationsWithRepetition()
+        {
+            var set = new List<string> { "1", "2", "3" };
+
+            var result = new List<List<string>>()
+            {
+                new List<string>() { "1", "1", "1" },
+                new List<string>() { "1", "1", "2" },
+                new List<string>() { "1", "1", "3" },
+                new List<string>() { "1", "2", "1" },
+                new List<string>() { "1", "2", "2" },
+                new List<string>() { "1", "2", "3" },
+                new List<string>() { "1", "3", "1" },
+                new List<string>() { "1", "3", "2" },
+                new List<string>() { "1", "3", "3" },
+                new List<string>() { "2", "1", "1" },
+                new List<string>() { "2", "1", "2" },
+                new List<string>() { "2", "1", "3" },
+                new List<string>() { "2", "2", "1" },
+                new List<string>() { "2", "2", "2" },
+                new List<string>() { "2", "2", "3" },
+                new List<string>() { "2", "3", "1" },
+                new List<string>() { "2", "3", "2" },
+                new List<string>() { "2", "3", "3" },
+                new List<string>() { "3", "1", "1" },
+                new List<string>() { "3", "1", "2" },
+                new List<string>() { "3", "1", "3" },
+                new List<string>() { "3", "2", "1" },
+                new List<string>() { "3", "2", "2" },
+                new List<string>() { "3", "2", "3" },
+                new List<string>() { "3", "3", "1" },
+                new List<string>() { "3", "3", "2" },
+                new List<string>() { "3", "3", "3" },
+            };
+
+            var permutationsWithRepetition = LinqExtensions.GetPermutationsWithRepetition(set, 3);
+            Assert.Equal(Math.Pow(3, 3), permutationsWithRepetition.Count());
+            Assert.Equal(result, permutationsWithRepetition);
+        }
+
         [Fact]
         public void GetPermutations_ListOfIntegers_ReturnsListOfPermutations()
         {

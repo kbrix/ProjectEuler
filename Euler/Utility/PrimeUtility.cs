@@ -64,11 +64,21 @@ namespace euler
         
         public static BigInteger GreatestCommonDivisor(BigInteger a, BigInteger b)
         {
-            var remainder = new BigInteger();
-            
             while (b != 0)
             {
-                remainder = a % b;
+                var remainder = a % b;
+                a = b;
+                b = remainder;
+            }
+
+            return a;
+        }
+
+        public static int GreatestCommonDivisor(int a, int b)
+        {
+            while (b != 0)
+            {
+                var remainder = a % b;
                 a = b;
                 b = remainder;
             }
