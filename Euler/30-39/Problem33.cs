@@ -1,38 +1,42 @@
+using System;
 using euler.Utility;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace euler
 {
+    // Digit cancelling fractions
     public class Problem33
     {
-        public static int Solution()
+        public static double Solution()
         {
-            var s = 1;
+            var tolerance = 0.0001;
+            var numerator = new List<int>();
+            var denominator = new List<int>();
 
-            for (int i = 10; i <= 99; i++)
+            for (int i = 11; i <= 99; i++)
             {
-                for (int j = 10; j <= 99; j++)
+                for (int j = i + 1; j <= 99; j++)
                 {
-                    var x = i.GetDigits();
-                    var y = j.GetDigits();
-
-                    (x.Union(y)).Intersect(x.Intersect(y));
-
-                    var n = x.ToArray();
-                    
-                    if (x.Count == 2)
+                    var skipCondition = i % 10 == 0 | i % 11 == 0 | j % 10 == 0 | j % 11 == 0;
+                    if (!skipCondition)
                     {
-                        if (i/j == n[0]/n[1])
+                        var x = i.GetDigits().ToHashSet();
+                        var y = j.GetDigits().ToHashSet();
+                        
+                        // union - set difference - intersection
+                        var digits = (x.Union(y)).Except(x.Intersect(y)).Select(z => (double)z).ToArray();
+
+                        if (digits.Count() == 2 && Math.Abs((double)i / (double)j - digits[0] / digits[1]) < tolerance)
                         {
-                            s *= n[1];
+                            numerator.Add(i);
+                            denominator.Add(j);
                         }
                     }
-                    
                 }
             }
             
-            return s;
+            return denominator.Product(x => x) / numerator.Product(x => x);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace euler
         public void ReturnsSolution()
         {
             var result = Problem33.Solution();
-            Assert.Equal(1, result);
+            Assert.Equal(100, result);
         }
     }
 }
