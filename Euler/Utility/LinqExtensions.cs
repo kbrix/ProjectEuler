@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Numerics;
 
@@ -79,6 +80,43 @@ namespace euler.Utility
             
             list.Reverse();
             return list;
+        }
+
+        public static IEnumerable<T> Rotate<T>(this IEnumerable<T> elements, int number = 1)
+        {
+            var elementsList = elements as IList<T> ?? elements.ToList();
+            var list = new List<T>(elementsList.Count);
+
+            if (number > elementsList.Count - 1)
+            {
+                throw new ArgumentException(nameof(number));
+            }
+
+            for (int i = number; i < elementsList.Count; i++)
+            {
+                list.Add(elementsList[i]);
+            }
+
+            for (int i = 0; i < number; i++)
+            {
+                list.Add(elementsList[i]);
+            }
+
+            return list;
+        }
+
+        public static int ConcatenateDigits(this IEnumerable<int> elements)
+        {
+            var digits = elements.ToArray();
+            var powers = Enumerable.Range(0, digits.Length).Reverse().ToArray();
+            var result = 0;
+
+            for (int i = 0; i < digits.Length; i++)
+            {
+                result += (int) Math.Pow(10, powers[i]) * digits[i];
+            }
+
+            return result;
         }
     }
 }

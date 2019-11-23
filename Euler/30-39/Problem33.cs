@@ -35,7 +35,9 @@ namespace euler
                     }
                 }
             }
-            
+
+            // 16 19 26 49
+            // 64 95 65 98
             return denominator.Product(x => x) / numerator.Product(x => x);
         }
     }

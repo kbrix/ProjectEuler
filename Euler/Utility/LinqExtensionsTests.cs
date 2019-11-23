@@ -131,5 +131,27 @@ namespace euler.Utility
             Assert.Equal(6, permutations.Count());
             Assert.Equal(result, permutations);
         }
+
+        [Fact]
+        public void Rotate_ListOfNumbers_ReturnsRotatesList()
+        {
+            var arr = new[] { 1, 2, 3, 4, 5 };
+            
+            var result1 = arr.Rotate().ToArray();
+            Assert.Equal(new[] {2, 3, 4, 5, 1}, result1);
+
+            var result2 = arr.Rotate(3).ToArray();
+            Assert.Equal(new[] { 4, 5, 1, 2, 3 }, result2);
+        }
+
+        [Theory]
+        [InlineData(new[] { 1, 2, 3 }, 123)]
+        [InlineData(new[] { 1, 0, 1 }, 101)]
+        [InlineData(new[] { 0, 0, 1 }, 001)]
+        [InlineData(new[] { 6, 9, 0 }, 690)]
+        public void ConcatenateDigits_ListOfDigits_ReturnsNumber(int[] digits, int result)
+        {
+            Assert.Equal(result, digits.ConcatenateDigits());
+        }
     }
 }
