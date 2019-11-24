@@ -49,5 +49,25 @@ namespace euler.Utility
             var result = x.DigitSum(p);
             Assert.Equal(a, result);
         }
+
+        [Theory]
+        [InlineData(3797, 0, 3797)]
+        [InlineData(3797, 1, 797)]
+        [InlineData(3797, 2, 97)]
+        [InlineData(3797, 3, 7)]
+        public void TruncateLeftToRight_Number_ReturnsTruncatedNumber(int number, int step, int result)
+        {
+            Assert.Equal(result, number.TruncateLeftToRight(step));
+        }
+
+        [Theory]
+        [InlineData(3797, 0, 3797)]
+        [InlineData(3797, 1, 379)]
+        [InlineData(3797, 2, 37)]
+        [InlineData(3797, 3, 3)]
+        public void TruncateRightToLeft_Number_ReturnsTruncatedNumber(int number, int step, int result)
+        {
+            Assert.Equal(result, number.TruncateRightToLeft(step));
+        }
     }
 }

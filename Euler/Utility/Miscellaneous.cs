@@ -39,5 +39,47 @@ namespace euler.Utility
 
             return (int)sum;
         }
+
+        /// <summary>
+        /// Truncates number from left to right.
+        /// </summary>
+        /// <param name="number">The number to truncate.</param>
+        /// <param name="step">Number of digits to truncate.</param>
+        /// <returns></returns>
+        public static int TruncateLeftToRight(this int number, int step)
+        {
+            if (step == 0)
+            {
+                return number;
+            }
+            var digits = number.GetDigits();
+            if (!(step <= digits.Count))
+            {
+                throw new ArgumentOutOfRangeException(nameof(step));
+            }
+            digits.RemoveRange(0, step);
+            return digits.ConcatenateDigits();
+        }
+
+        /// <summary>
+        /// Truncates number from right to left.
+        /// </summary>
+        /// <param name="number">The number to truncate.</param>
+        /// <param name="step">Number of digits to truncate.</param>
+        /// <returns></returns>
+        public static int TruncateRightToLeft(this int number, int step)
+        {
+            if (step == 0)
+            {
+                return number;
+            }
+            var digits = number.GetDigits();
+            if (!(step <= digits.Count))
+            {
+                throw new ArgumentOutOfRangeException(nameof(step));
+            }
+            digits.RemoveRange(digits.Count - step, step);
+            return digits.ConcatenateDigits();
+        }
     }
 }
