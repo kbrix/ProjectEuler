@@ -20,7 +20,7 @@ namespace euler
         }
         
         [Fact]
-        public void Solution_ReturnsResult() // 47 sec
+        public void Solution_ReturnsResult()
         {
             var result = Problem5.Solution();
             
