@@ -4,9 +4,10 @@ using System.Text;
 
 namespace euler
 {
+    // Special Pythagorean triplet
+    // See https://en.wikipedia.org/wiki/Pythagorean_triple#A_variant
     class Problem9
     {
-        // see https://en.wikipedia.org/wiki/Pythagorean_triple#A_variant
         public static int Solution()
         {
             var a = 0;
