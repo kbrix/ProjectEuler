@@ -9,11 +9,11 @@ namespace euler
         [Fact]
         public void GeneralizedSolution_Problem67_ReturnsResult()
         {
-            var result = Problem18.GeneralizedSolution(triangleData);
+            var result = Problem18.GeneralizedSolution(TriangleData);
             Assert.Equal(7273, result);
         }
         
-        private int[,] triangleData =
+        public static int[,] TriangleData =
         {
             {
                 59, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00,
