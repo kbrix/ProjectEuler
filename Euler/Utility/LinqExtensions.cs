@@ -113,7 +113,21 @@ namespace euler.Utility
 
             for (int i = 0; i < digits.Length; i++)
             {
-                result += (int) Math.Pow(10, powers[i]) * digits[i];
+                result += (int)Math.Pow(10, powers[i]) * digits[i];
+            }
+
+            return result;
+        }
+
+        public static BigInteger ConcatenateDigits(this IEnumerable<BigInteger> elements)
+        {
+            var digits = elements.ToArray();
+            var powers = Enumerable.Range(0, digits.Length).Reverse().ToArray();
+            BigInteger result = 0;
+
+            for (int i = 0; i < digits.Length; i++)
+            {
+                result += BigInteger.Pow(10, powers[i]) * digits[i];
             }
 
             return result;

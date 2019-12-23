@@ -32,5 +32,17 @@ namespace euler.Utility
             return digits;
         }
 
+        public static List<BigInteger> GetDigits<T>(this BigInteger number, int baseNumber = 10)
+        {
+            var digits = new List<BigInteger>();
+            while (number > 0)
+            {
+                digits.Add(number % baseNumber);
+                number /= baseNumber;
+            }
+            digits.Reverse();
+            return digits;
+        }
+
     }
 }

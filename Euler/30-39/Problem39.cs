@@ -9,11 +9,6 @@ namespace euler
     // Generate all triplets in sequence, compute sum, update counters, find largest counter
     class Problem39
     {
-        public static (double a, double b, double c) ass(int n, int a, int b)
-        {
-            return CommonFunctions.PythagoreanTriple(n, a, b);
-        }
-
         public static int Solution()
         {
             var p = 1000;
