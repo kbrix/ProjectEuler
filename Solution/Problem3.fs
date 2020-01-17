@@ -2,7 +2,7 @@
 
 module Problem3 =
 
-    let solution =
+    let solution() =
         let rec largestPrimeFactor (n: int64) (divisor: int64) =
             match System.Math.DivRem(n, divisor) with
             | (x, 0L) -> largestPrimeFactor x divisor

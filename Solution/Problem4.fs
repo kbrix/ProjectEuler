@@ -15,7 +15,7 @@ module Problem4 =
         let digits = n |> getDigits
         digits = (digits |> List.rev)
 
-    let solution =
+    let solution() =
         let sequence = seq {
             for i in 100..999 do
                 for j in 100..999 do

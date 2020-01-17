@@ -2,7 +2,7 @@
 
 module Problem2 = 
     
-    let solution =
+    let solution() =
         let sequence = (1, 1) |> Seq.unfold (fun (a, b) -> Some(a + b, (b, a + b)))
         let fibonacciSequence = seq { yield 1; yield 1; yield! sequence }
         fibonacciSequence |> Seq.takeWhile (fun x -> x <= 4000000) |> Seq.filter (fun x -> x % 2 = 0) |> Seq.sum

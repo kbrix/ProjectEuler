@@ -5,7 +5,7 @@ open Xunit
 
 [<Fact>]
 let ``Even Fibonacci numbers: solution`` () =
-    Assert.Equal(4613732, Solution.Problem2.solution)
+    Assert.Equal(4613732, Solution.Problem2.solution())
 
 [<Theory>]
 [<InlineData(-1)>]
