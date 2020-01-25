@@ -38,6 +38,9 @@ let main argv =
                 | Some(3)  -> solutionPrinter "Problem 3: 'Largest prime factor'." Solution.Problem3.solution
                 | Some(4)  -> solutionPrinter "Problem 4: 'Largest palindrome product'." Solution.Problem4.solution
                 | Some(5)  -> solutionPrinter "Problem 5: 'Smallest multiple'." Solution.Problem5.solution
+                | Some(6)  -> solutionPrinter "Problem 6: 'Sum square difference'." (fun _ -> Solution.Problem6.solution(100))
+                | Some(7)  -> solutionPrinter "Problem 7: '10001st prime'." (Solution.Problem7.solution)
+                | Some(8)  -> solutionPrinter "Problem 8: 'Largest product in a series'." (Solution.Problem8.solution)
                 | _        -> printfn "Problem not currently solved."
         
         program()
