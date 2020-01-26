@@ -14,8 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Problem8.fs" />
     <Compile Include="Utility\PrimeUtility.fs" />
+    <Compile Include="Problem10.fs" />
+    <Compile Include="Problem9.fs" />
+    <Compile Include="Problem8.fs" />
     <Compile Include="Problem7.fs" />
     <Compile Include="Problem6.fs" />
     <Compile Include="Problem5.fs" />

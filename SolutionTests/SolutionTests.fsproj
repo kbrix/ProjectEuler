@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Problem10Tests.fs" />
+    <Compile Include="Problem9Tests.fs" />
     <Compile Include="Problem8Tests.fs" />
     <Compile Include="Utility\PrimeUtilityTests.fs" />
     <Compile Include="Problem7Tests.fs" />

@@ -41,6 +41,7 @@ let main argv =
                 | Some(6)  -> solutionPrinter "Problem 6: 'Sum square difference'." (fun _ -> Solution.Problem6.solution(100))
                 | Some(7)  -> solutionPrinter "Problem 7: '10001st prime'." (Solution.Problem7.solution)
                 | Some(8)  -> solutionPrinter "Problem 8: 'Largest product in a series'." (Solution.Problem8.solution)
+                | Some(9)  -> solutionPrinter "Problem 9: 'Special Pythagorean triplet'." (Solution.Problem9.solution)
                 | _        -> printfn "Problem not currently solved."
         
         program()
