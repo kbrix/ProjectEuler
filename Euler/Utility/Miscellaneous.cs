@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace euler.Utility
 {
@@ -19,6 +20,16 @@ namespace euler.Utility
             }
 
             return x - 'A' + 1;
+        }
+
+        /// <summary>
+        /// Convert a word consisting of Latin characters into a number by summing each letter's index value.
+        /// </summary>
+        /// <param name="word">A word consisting of Latin characters.</param>
+        /// <returns>Returns the sum letter values, see also 'ConvertLetterToNumber()'.</returns>
+        public static int ConvertWordToNumber(string word)
+        {
+            return word.ToCharArray().Sum(ConvertLetterToNumber);
         }
 
         /// <summary>
