@@ -44,6 +44,7 @@ let main argv =
                 | Some(9)  -> solutionPrinter "Problem 9: 'Special Pythagorean triplet'." (Solution.Problem9.solution)
                 | Some(10)  -> solutionPrinter "Problem 10: 'Summation of primes'." (Solution.Problem10.solution)
                 | Some(41)  -> solutionPrinter "Problem 41: 'Pandigital prime'." (Solution.Problem41.solution)
+                | Some(42)  -> solutionPrinter "Problem 42: 'Coded triangle numbers'." (Solution.Problem42.solution)
                 | Some(48)  -> solutionPrinter "Problem 48: 'Self powers'." (fun _ -> Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))
                 | _        -> printfn "Problem not currently solved."
         
