@@ -14,8 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Problem42.fs" />
+    <Compile Include="Utility\NumberUtility.fs" />
     <Compile Include="Utility\PrimeUtility.fs" />
+    <Compile Include="Problem48.fs" />
+    <Compile Include="Problem41.fs" />
     <Compile Include="Problem10.fs" />
     <Compile Include="Problem9.fs" />
     <Compile Include="Problem8.fs" />
@@ -29,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <ProjectReference Include="..\Euler\Euler.csproj" />
   </ItemGroup>
 
   <ItemGroup>

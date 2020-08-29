@@ -10,18 +10,7 @@ namespace euler
     {
         public static int Solution()
         {
-            var data = File.ReadAllText("../../../20-29/p022_names.txt");
-
-            var names = data.Split(",");
-
-            for (int i = 0; i < names.Length; i++)
-            {
-                names[i] = names[i].Trim('\"');
-            }
-
-            var orderedNames = names.OrderBy(x => x);
-            names = names.OrderBy(x => x).ToArray();
-
+            var names = File.ReadAllLines("../../../20-29/p022_names.txt"); // cleaned and ordered beforehand
             var values = new int[names.Length];
             
             for (int i = 0; i < names.Length; i++)

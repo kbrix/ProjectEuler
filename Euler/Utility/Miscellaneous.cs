@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace euler.Utility
@@ -91,6 +92,22 @@ namespace euler.Utility
             }
             digits.RemoveRange(digits.Count - step, step);
             return digits.ConcatenateDigits();
+        }
+
+        /// <summary>
+        /// Checks if an n-digit number is pandigital (uses all digits from 1 to n exactly once, e.g. 7652413 is pandigital).
+        /// </summary>
+        /// <param name="digits"></param>
+        /// <returns></returns>
+        public static bool IsPandigital(this List<int> digits)
+        {
+            return !digits.Contains(0) && digits.Count == 9 && digits.Distinct().Count() == 9;
+        }
+
+        public static bool IsPandigital(int n)
+        {
+            var digits = n.GetDigits();
+            return !digits.Contains(0) && digits.Count == 9 && digits.Distinct().Count() == 9;
         }
     }
 }

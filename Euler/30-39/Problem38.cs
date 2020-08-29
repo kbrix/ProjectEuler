@@ -7,11 +7,6 @@ namespace euler
     // Pandigital multiples
     static class Problem38
     {
-        private static bool IsPandigital(this List<int> digits)
-        {
-            return !digits.Contains(0) && digits.Count == 9 && digits.Distinct().Count() == 9;
-        }
-
         public static int Solution()
         {
             var max = 0;

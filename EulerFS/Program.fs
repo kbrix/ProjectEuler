@@ -29,7 +29,7 @@ let main argv =
                     | :? System.FormatException as ex -> formatExceptionMessage input ex.Message; None
             
             if number < Some(1) then
-                printfn "Please stop trolling my program"
+                printfn "Please stop trolling my program."
             else
                 match number with
                 | None     -> printfn ""
@@ -42,6 +42,9 @@ let main argv =
                 | Some(7)  -> solutionPrinter "Problem 7: '10001st prime'." (Solution.Problem7.solution)
                 | Some(8)  -> solutionPrinter "Problem 8: 'Largest product in a series'." (Solution.Problem8.solution)
                 | Some(9)  -> solutionPrinter "Problem 9: 'Special Pythagorean triplet'." (Solution.Problem9.solution)
+                | Some(10)  -> solutionPrinter "Problem 10: 'Summation of primes'." (Solution.Problem10.solution)
+                | Some(41)  -> solutionPrinter "Problem 41: 'Pandigital prime'." (Solution.Problem41.solution)
+                | Some(48)  -> solutionPrinter "Problem 48: 'Self powers'." (fun _ -> Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))
                 | _        -> printfn "Problem not currently solved."
         
         program()
