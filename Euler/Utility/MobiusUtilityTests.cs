@@ -1,7 +1,5 @@
 using System.Linq;
-using NUnit.Framework;
 using Xunit;
-using Assert = Xunit.Assert;
 
 namespace euler
 {
@@ -17,7 +15,7 @@ namespace euler
                 -1, 0, 1, 1, 1, 0, -1, 1, 1, 0, -1, -1, -1, 0, 0, 1, -1, 0, 0, 0, 1, 0, -1, 0, 1, 0, 1, 1, -1, 0, -1, 1,
                 0, 0, 1, -1, -1, 0, 1, -1, -1, 0, -1, 1, 0
             };
-            CollectionAssert.AreEqual(value, result);
+            Assert.Equal(value, result);
         }
         
         [Fact] // 42 sec
