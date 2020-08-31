@@ -1,18 +1,26 @@
-Solution/bin/
+SolutionCS/bin/
 
-Solution/obj/
+SolutionCS/obj/
 
-SolutionTests/bin/
+SolutionFS/bin/
 
-SolutionTests/obj/
+SolutionFS/obj/
+
+SolutionTestsCS/bin/
+
+SolutionTestsCS/obj/
+
+SolutionTestsFS/bin/
+
+SolutionTestsFS/obj/
 
 EulerFS/bin/
 
 EulerFS/obj/
 
-Euler/bin/
+EulerCS/bin/
 
-Euler/obj/
+EulerCS/obj/
 
 euler\.sln\.DotSettings\.user
 

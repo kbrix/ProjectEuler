@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OtherFlags>--checked+</OtherFlags>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OtherFlags>--checked+</OtherFlags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Utility\NumberUtility.fs" />
+    <Compile Include="Utility\PrimeUtility.fs" />
+    <Compile Include="Problem48.fs" />
+    <Compile Include="Problem42.fs" />
+    <Compile Include="Problem41.fs" />
+    <Compile Include="Problem10.fs" />
+    <Compile Include="Problem9.fs" />
+    <Compile Include="Problem8.fs" />
+    <Compile Include="Problem7.fs" />
+    <Compile Include="Problem6.fs" />
+    <Compile Include="Problem5.fs" />
+    <Compile Include="Problem4.fs" />
+    <Compile Include="Problem3.fs" />
+    <Compile Include="Problem2.fs" />
+    <Compile Include="Problem1.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EulerCS\EulerCS.csproj" />
+  </ItemGroup>
+
+</Project>
