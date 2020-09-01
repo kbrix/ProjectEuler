@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolutionCS.Utility;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS.UtilityTests
 {
     public class LinqExtensionsTests
     {
-        [Fact]
+        [Test]
         public void GetPermutationsWithRepetition_ListOfIntegers_ReturnsListOfPermutationsWithRepetition()
         {
             var set = new List<int> {1, 2, 3};
@@ -45,11 +45,11 @@ namespace SolutionTestsCS.UtilityTests
             };
 
             var permutationsWithRepetition = LinqExtensions.GetPermutationsWithRepetition(set, 3);
-            Assert.Equal(Math.Pow(3, 3), permutationsWithRepetition.Count());
-            Assert.Equal(result, permutationsWithRepetition);
+            Assert.AreEqual(Math.Pow(3, 3), permutationsWithRepetition.Count());
+            Assert.AreEqual(result, permutationsWithRepetition);
         }
 
-        [Fact]
+        [Test]
         public void GetPermutationsWithRepetition_ListOfStrings_ReturnsListOfPermutationsWithRepetition()
         {
             var set = new List<string> { "1", "2", "3" };
@@ -86,11 +86,11 @@ namespace SolutionTestsCS.UtilityTests
             };
 
             var permutationsWithRepetition = LinqExtensions.GetPermutationsWithRepetition(set, 3);
-            Assert.Equal(Math.Pow(3, 3), permutationsWithRepetition.Count());
-            Assert.Equal(result, permutationsWithRepetition);
+            Assert.AreEqual(Math.Pow(3, 3), permutationsWithRepetition.Count());
+            Assert.AreEqual(result, permutationsWithRepetition);
         }
 
-        [Fact]
+        [Test]
         public void GetPermutations_ListOfIntegers_ReturnsListOfPermutations()
         {
             var set = new List<int> {1, 2, 3};
@@ -107,11 +107,11 @@ namespace SolutionTestsCS.UtilityTests
 
             var permutations = LinqExtensions.GetPermutations(set, 3);
             
-            Assert.Equal(6, permutations.Count());
-            Assert.Equal(result, permutations);
+            Assert.AreEqual(6, permutations.Count());
+            Assert.AreEqual(result, permutations);
         }
         
-        [Fact]
+        [Test]
         public void GetPermutations_ListOfStrings_ReturnsListOfPermutations()
         {
             var set = new List<string> {"0", "1", "2"};
@@ -128,30 +128,29 @@ namespace SolutionTestsCS.UtilityTests
 
             var permutations = LinqExtensions.GetPermutations(set, 3);
             
-            Assert.Equal(6, permutations.Count());
-            Assert.Equal(result, permutations);
+            Assert.AreEqual(6, permutations.Count());
+            Assert.AreEqual(result, permutations);
         }
 
-        [Fact]
+        [Test]
         public void Rotate_ListOfNumbers_ReturnsRotatesList()
         {
             var arr = new[] { 1, 2, 3, 4, 5 };
             
             var result1 = arr.Rotate().ToArray();
-            Assert.Equal(new[] {2, 3, 4, 5, 1}, result1);
+            Assert.AreEqual(new[] {2, 3, 4, 5, 1}, result1);
 
             var result2 = arr.Rotate(3).ToArray();
-            Assert.Equal(new[] { 4, 5, 1, 2, 3 }, result2);
+            Assert.AreEqual(new[] { 4, 5, 1, 2, 3 }, result2);
         }
 
-        [Theory]
-        [InlineData(new[] { 1, 2, 3 }, 123)]
-        [InlineData(new[] { 1, 0, 1 }, 101)]
-        [InlineData(new[] { 0, 0, 1 }, 001)]
-        [InlineData(new[] { 6, 9, 0 }, 690)]
+        [TestCase(new[] { 1, 2, 3 }, 123)]
+        [TestCase(new[] { 1, 0, 1 }, 101)]
+        [TestCase(new[] { 0, 0, 1 }, 001)]
+        [TestCase(new[] { 6, 9, 0 }, 690)]
         public void ConcatenateDigits_ListOfDigits_ReturnsNumber(int[] digits, int result)
         {
-            Assert.Equal(result, digits.ConcatenateDigits());
+            Assert.AreEqual(result, digits.ConcatenateDigits());
         }
     }
 }

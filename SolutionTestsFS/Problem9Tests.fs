@@ -1,7 +1,7 @@
 ﻿module Problem9Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Special Pythagorean triplet: solution`` () =
-    Assert.Equal(31875000, Solution.Problem9.solution())
+    Assert.AreEqual(31875000, Solution.Problem9.solution())

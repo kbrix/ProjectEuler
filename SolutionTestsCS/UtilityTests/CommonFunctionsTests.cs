@@ -1,31 +1,37 @@
+using System.Collections.Generic;
 using System.Numerics;
 using SolutionCS.Utility;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS.UtilityTests
 {
     public class CommonFunctionsTests
     {
-        [Theory]
-        [InlineData(1, 1)]
-        [InlineData(2, 2)]
-        [InlineData(3, 6)]
-        [InlineData(4, 24)]
-        [InlineData(5, 120)]
-        [InlineData(6, 720)]
-        [InlineData(7, 5040)]
-        [InlineData(8, 40320)]
-        [InlineData(9, 362880)]
-        [InlineData(10, 3628800)]
-        [InlineData(20, 2432902008176640000)]
-        public void Factorial_NaturalNumber_ReturnsResult(BigInteger n, BigInteger x)
+        private static IEnumerable<TestCaseData> Factorial_NaturalNumber_Data
         {
-            var result = n.Factorial();
-            Assert.Equal(x, result);
-
+            get
+            {
+                yield return new TestCaseData((BigInteger) 1, (BigInteger) 1);
+                yield return new TestCaseData((BigInteger) 2, (BigInteger) 2);
+                yield return new TestCaseData((BigInteger) 3, (BigInteger) 6);
+                yield return new TestCaseData((BigInteger) 4, (BigInteger) 24);
+                yield return new TestCaseData((BigInteger) 5, (BigInteger) 120);
+                yield return new TestCaseData((BigInteger) 6, (BigInteger) 720);
+                yield return new TestCaseData((BigInteger) 7, (BigInteger) 5040);
+                yield return new TestCaseData((BigInteger) 8, (BigInteger) 40320);
+                yield return new TestCaseData((BigInteger) 9, (BigInteger) 362880);
+                yield return new TestCaseData((BigInteger) 10, (BigInteger) 3628800);
+                yield return new TestCaseData((BigInteger) 20, (BigInteger) 2432902008176640000);
+            }
         }
 
-        [Fact]
+        [Test, TestCaseSource(nameof(Factorial_NaturalNumber_Data))]
+        public void Factorial_NaturalNumber_ReturnsResult(BigInteger n, BigInteger x)
+        {
+            Assert.AreEqual((BigInteger)1, ((BigInteger)1).Factorial());
+        }
+
+        [Test]
         public void BinomialCoefficient_PairsOfNaturalNumbers_ReturnsResult()
         {
             var value = new BigInteger[,]
@@ -52,7 +58,7 @@ namespace SolutionTestsCS.UtilityTests
                 }
             }
             
-            Assert.Equal(value, result);
+            Assert.AreEqual(value, result);
         }
     }
 }

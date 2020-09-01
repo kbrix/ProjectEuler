@@ -1,23 +1,23 @@
 ﻿using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     // 1000-digit Fibonacci number, https://projecteuler.net/problem=25
     public class Problem25Tests
     {
-        [Fact]
+        [Test]
         public void GeneralizedSolution_ExampleValue_ReturnsResult()
         {
             var value = Problem25.GeneralizedSolution(2);
-            Assert.Equal(12, value);
+            Assert.AreEqual(12, value);
         }
 
-        [Fact]
+        [Test]
         public void Solution_ReturnsResult()
         {
             var value = Problem25.Solution();
-            Assert.Equal(4782, value);
+            Assert.AreEqual(4782, value);
         }
     }
 }

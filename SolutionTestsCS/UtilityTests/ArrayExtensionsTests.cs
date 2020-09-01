@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolutionCS.Utility;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS.UtilityTests
 {
     public class ArrayExtensionsTests
     {
-        [Fact]
+        [Test]
         public void Sum_Array_ReturnsSum()
         {
             var a = new int[] {1, 2, 3, 4};
             var result = a.Product();
-            Assert.Equal(24, result);
+            Assert.AreEqual(24, result);
         }
 
-        [Fact]
+        [Test]
         public void ExtractDiagonals_SquareTwoDimensionalArray_ThrowsArgumentException()
         {
             var matrix = new int[,]
@@ -24,17 +24,15 @@ namespace SolutionTestsCS.UtilityTests
                 {4, 5, 6},
             };
 
-            Action result = () => matrix.ExtractDiagonals();
+            TestDelegate result = () => matrix.ExtractDiagonals();
 
-            var ex = Record.Exception(result);
+            var ex = Assert.Throws<ArgumentException>(result);
             
             Assert.NotNull(ex);
-            Assert.Equal("The two-dimensional array must be square. The array has 2 row(s) and 3 column(s).", ex.Message);
-            Assert.IsType<ArgumentException>(ex);
-            //Assert.Throws<ArgumentException>(result);
+            Assert.AreEqual("The two-dimensional array must be square. The array has 2 row(s) and 3 column(s).", ex.Message);
         }
 
-        [Fact]
+        [Test]
         public void ExtractDiagonals_SquareTwoDimensionalArray_ReturnsListOfDiagonals()
         {
             var matrix = new int[,]
@@ -55,10 +53,10 @@ namespace SolutionTestsCS.UtilityTests
 
             var result = matrix.ExtractDiagonals();
             
-            Assert.Equal(value, result);
+            Assert.AreEqual(value, result);
         }
 
-        [Fact]
+        [Test]
         public void Transpose_SquareTwoDimensionalArray_TransposedArray()
         {
             var matrix = new int[,]
@@ -76,10 +74,10 @@ namespace SolutionTestsCS.UtilityTests
             };
 
             var result = matrix.Transpose();
-            Assert.Equal(value, result);
+            Assert.AreEqual(value, result);
         }
         
-        [Fact]
+        [Test]
         public void Reverse_SquareTwoDimensionalArray_ReturnsReversedArray()
         {
             var matrix = new int[,]
@@ -97,7 +95,7 @@ namespace SolutionTestsCS.UtilityTests
             };
 
             var result = matrix.Reverse();
-            Assert.Equal(value, result);
+            Assert.AreEqual(value, result);
         }
     }
 }

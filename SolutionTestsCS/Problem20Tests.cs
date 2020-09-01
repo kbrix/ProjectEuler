@@ -1,22 +1,22 @@
 ﻿using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     public class Problem20Tests
     {
-        [Fact]
+        [Test]
         public void GeneralizedSolution_ExampleValue_ReturnsResult()
         {
             var result = Problem20.GeneralizedSolution(10);
-            Assert.Equal(27, result);
+            Assert.AreEqual(27, result);
         }
 
-        [Fact]
+        [Test]
         public void Solution_ReturnsResult()
         {
             var result = Problem20.Solution();
-            Assert.Equal(648, result);
+            Assert.AreEqual(648, result);
         }
     }
 }

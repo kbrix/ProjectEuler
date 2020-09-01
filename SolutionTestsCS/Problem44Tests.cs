@@ -1,15 +1,15 @@
 ﻿using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     public class Problem44Tests
     {
-        [Fact]
+        [Test]
         public static void ReturnsSolution()
         {
             var result = Problem44.Solution(); // pentagonNumber[2167] = 7042750, pentagonNumber[1020] = 1560090
-            Assert.Equal(5482660, result);
+            Assert.AreEqual(5482660, result);
         }
     }
 }

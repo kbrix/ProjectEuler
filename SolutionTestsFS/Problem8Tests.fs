@@ -1,7 +1,7 @@
 ﻿module Problem8Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Largest product in a series: solution`` () =
-    Assert.Equal(23514624000L, Solution.Problem8.solution())
+    Assert.AreEqual(23514624000L, Solution.Problem8.solution())

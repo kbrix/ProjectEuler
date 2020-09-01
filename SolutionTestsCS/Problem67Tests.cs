@@ -1,5 +1,5 @@
 using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
@@ -7,11 +7,11 @@ namespace SolutionTestsCS
     // https://projecteuler.net/problem=67
     public class Problem67Tests
     {
-        [Fact]
+        [Test]
         public void GeneralizedSolution_Problem67_ReturnsResult()
         {
             var result = Problem67.Solution();
-            Assert.Equal(7273, result);
+            Assert.AreEqual(7273, result);
         }
     }
 }

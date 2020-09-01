@@ -1,15 +1,15 @@
 using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     public class Problem33Tests
     {
-        [Fact]
+        [Test]
         public void ReturnsSolution()
         {
             var result = Problem33.Solution();
-            Assert.Equal(100, result);
+            Assert.AreEqual(100, result);
         }
     }
 }

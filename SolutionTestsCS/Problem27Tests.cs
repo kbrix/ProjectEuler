@@ -1,31 +1,31 @@
 ﻿using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     public class Problem27Tests
     {
-        [Fact]
+        [Test]
         public void PolynomialPrimeCounter_ExampleValue1_ReturnsResult()
         {
             var result = Problem27.PolynomialPrimeCounter(1, 41);
 
-            Assert.Equal(40, result);
+            Assert.AreEqual(40, result);
         }
 
-        [Fact]
+        [Test]
         public void PolynomialPrimeCounter_ExampleValue2_ReturnsResult()
         {
             var result = Problem27.PolynomialPrimeCounter(-79, 1601);
 
-            Assert.Equal(80, result);
+            Assert.AreEqual(80, result);
         }
 
-        [Fact]
+        [Test]
         public void Solution_ReturnsResult()
         {
             var result = Problem27.Solution();
-            Assert.Equal(-59231, result);
+            Assert.AreEqual(-59231, result);
         }
     }
 }

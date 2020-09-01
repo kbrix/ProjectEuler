@@ -1,32 +1,32 @@
 ﻿using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     public class Problem26Tests
     {
-        [Theory]
-        [InlineData(7, 6)]
-        [InlineData(17, 16)]
-        [InlineData(19, 18)]
-        [InlineData(23, 22)]
-        [InlineData(29, 28)]
-        [InlineData(47, 46)]
-        [InlineData(59, 58)]
-        [InlineData(61, 60)]
-        [InlineData(97, 96)]
-        [InlineData(983, 982)]
+        
+        [TestCase(7, 6)]
+        [TestCase(17, 16)]
+        [TestCase(19, 18)]
+        [TestCase(23, 22)]
+        [TestCase(29, 28)]
+        [TestCase(47, 46)]
+        [TestCase(59, 58)]
+        [TestCase(61, 60)]
+        [TestCase(97, 96)]
+        [TestCase(983, 982)]
         public static void RepeatingDigitCount_Number_ReturnsNumberOfRepeatingDigits(int n, int digitCount)
         {
             var result = Problem26.RepeatingDigitCount(n);
-            Assert.Equal(digitCount, result);
+            Assert.AreEqual(digitCount, result);
         }
 
-        [Fact]
+        [Test]
         public static void Solution_ReturnsResult()
         {
             var result = Problem26.Solution(1000);
-            Assert.Equal(983, result);
+            Assert.AreEqual(983, result);
         }
     }
 }

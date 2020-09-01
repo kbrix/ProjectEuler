@@ -1,24 +1,23 @@
 using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     public class Problem10Tests
     {
-        [Theory]
-        [InlineData(10, 17)]
-        [InlineData(200000, 1709600813)]
+        [TestCase(10, 17)]
+        [TestCase(200000, 1709600813)]
         public static void GeneralizedSolution_TestExample_ReturnsResult(int n, long x)
         {
             var result = Problem10.GeneralizedSolution(n);
-            Assert.Equal(x, result);
+            Assert.AreEqual(x, result);
         }
         
-        [Fact]
+        [Test]
         public static void Solution_ReturnsResult()
         {
             var result = Problem10.Solution();
-            Assert.Equal(142913828922, result);
+            Assert.AreEqual(142913828922, result);
         }
     }
 }

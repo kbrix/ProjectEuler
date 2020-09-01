@@ -3,3 +3,5 @@ mono: none
 dotnet: 3.1.401
 script:
   - dotnet build
+  - dotnet test SolutionTestsCS/SolutionTestsCS.csproj --logger "console;verbosity=detailed"
+  - dotnet test SolutionTestsFS/SolutionTestsFS.fsproj --logger "console;verbosity=detailed"

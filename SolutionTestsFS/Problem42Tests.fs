@@ -1,7 +1,7 @@
 ﻿module Problem42Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Coded triangle numbers: solution`` () =
-    Assert.Equal(162, Solution.Problem42.solution())
+    Assert.AreEqual(162, Solution.Problem42.solution())

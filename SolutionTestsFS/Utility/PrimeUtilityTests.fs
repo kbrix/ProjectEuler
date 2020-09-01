@@ -1,6 +1,6 @@
 ﻿module PrimeUtilityTests
 
-open Xunit
+open NUnit.Framework
 
 let readLines (filePath : string) =
     seq {
@@ -9,7 +9,7 @@ let readLines (filePath : string) =
             yield reader.ReadLine() |> int
     }
 
-[<Fact>]
+[<Test>]
 let ``Prime seqeunce test`` () =
     let filepath = "../../../Utility/Data/primes1million.txt"
     let data = filepath |> readLines |> Seq.toArray
@@ -17,4 +17,4 @@ let ``Prime seqeunce test`` () =
     
 
     for i = 0 to primes.Length - 1 do
-        Assert.Equal(data.[i], primes.[i])
+        Assert.AreEqual(data.[i], primes.[i])

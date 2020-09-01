@@ -1,8 +1,8 @@
 ﻿module Problem6Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Sum square difference: solution`` () =
-    Assert.Equal(25164150, Solution.Problem6.solution(100))
+    Assert.AreEqual(25164150, Solution.Problem6.solution(100))
 

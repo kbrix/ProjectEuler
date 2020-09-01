@@ -1,7 +1,7 @@
 ﻿module Problem3Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Largest prime factor: solution`` () =
-    Assert.Equal(6857L, Solution.Problem3.solution())
+    Assert.AreEqual(6857L, Solution.Problem3.solution())

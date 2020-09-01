@@ -1,22 +1,22 @@
 using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     public class Problem12Tests
     {
-        [Fact]
+        [Test]
         public void GeneralizedSolution_Example_ReturnsTriangleNumber()
         {
             var result = Problem12.GeneralizedSolution(5);
-            Assert.Equal(28, result);
+            Assert.AreEqual(28, result);
         }
 
-        [Fact]
+        [Test]
         public void Solution_SolutionForProblem12_ReturnsTriangleNumber()
         {
             var result = Problem12.Solution();
-            Assert.Equal(76576500, result);
+            Assert.AreEqual(76576500, result);
         }
     }
 }

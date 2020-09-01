@@ -1,7 +1,7 @@
 ﻿module Problem5Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Smallest multiple: solution`` () =
-    Assert.Equal(232792560, Solution.Problem5.solution())
+    Assert.AreEqual(232792560, Solution.Problem5.solution())

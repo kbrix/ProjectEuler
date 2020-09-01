@@ -1,7 +1,7 @@
 ﻿module Problem10Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Summation of primes: solution`` () =
-    Assert.Equal(142913828922L, Solution.Problem10.solution())
+    Assert.AreEqual(142913828922L, Solution.Problem10.solution())

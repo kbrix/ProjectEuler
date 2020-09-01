@@ -1,23 +1,23 @@
 ﻿using SolutionCS;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS
 {
     // Distinct powers, https://projecteuler.net/problem=29
     public class Problem29Tests
     {
-        [Fact]
+        [Test]
         public void GeneralizedSolution_ExampleValue_ReturnsResult()
         {
             var result = Problem29.GeneralizedSolution(5, 5);
-            Assert.Equal(15, result);
+            Assert.AreEqual(15, result);
         }
 
-        [Fact]
+        [Test]
         public void Solution_ReturnsResult()
         {
             var result = Problem29.Solution();
-            Assert.Equal(9183, result);
+            Assert.AreEqual(9183, result);
         }
     }
 }

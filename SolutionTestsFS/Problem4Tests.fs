@@ -1,7 +1,7 @@
 ﻿module Problem4Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Largest palindrome product: solution`` () =
-    Assert.Equal(906609, Solution.Problem4.solution())
+    Assert.AreEqual(906609, Solution.Problem4.solution())

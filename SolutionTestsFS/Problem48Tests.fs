@@ -1,11 +1,11 @@
 ﻿module Problem48Tests
 
-open Xunit
+open NUnit.Framework
 
-[<Fact>]
+[<Test>]
 let ``Self powers: example`` () =
-    Assert.Equal(10405071317I, Solution.Problem48.solution(10))
+    Assert.AreEqual(10405071317I, Solution.Problem48.solution(10))
 
-[<Fact>]
+[<Test>]
 let ``Self powers: solution`` () =
-    Assert.Equal(9110846700I, Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))
+    Assert.AreEqual(9110846700I, Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))

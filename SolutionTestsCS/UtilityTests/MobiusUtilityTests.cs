@@ -1,12 +1,12 @@
 using System.Linq;
 using SolutionCS.Utility;
-using Xunit;
+using NUnit.Framework;
 
 namespace SolutionTestsCS.UtilityTests
 {
     public class MoreUtilityTests
     {
-        [Fact]
+        [Test]
         public void MobiusSieve_SmallNumberOfDice_ReturnsArrayOfValues()
         {
             var result = MobiusUtility.MobiusSieve(75); // 0:75 (\mu(0):=0)
@@ -16,14 +16,14 @@ namespace SolutionTestsCS.UtilityTests
                 -1, 0, 1, 1, 1, 0, -1, 1, 1, 0, -1, -1, -1, 0, 0, 1, -1, 0, 0, 0, 1, 0, -1, 0, 1, 0, 1, 1, -1, 0, -1, 1,
                 0, 0, 1, -1, -1, 0, 1, -1, -1, 0, -1, 1, 0
             };
-            Assert.Equal(value, result);
+            Assert.AreEqual(value, result);
         }
         
-        [Fact] // 42 sec
+        [Test] // 42 sec
         public void MobiusSieve_VeryLargeNumberOfDice_ReturnsLastValueInArray()
         {
             var result = MobiusUtility.MobiusSieve((int)1e9);
-            Assert.Equal(0, result.Last());
+            Assert.AreEqual(0, result.Last());
         }
     }
 }
