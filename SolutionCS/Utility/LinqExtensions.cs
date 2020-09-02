@@ -50,7 +50,7 @@ namespace SolutionCS.Utility
                     );
         }
 
-        public static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> list, int length)
+        public static IEnumerable<IEnumerable<T>> GetPermutations<T>(this IEnumerable<T> list, int length)
         {
             if (length == 1)
             {
@@ -67,15 +67,30 @@ namespace SolutionCS.Utility
 
         public static List<int> GetDigits(this int number)
         {
-            var n = Math.Floor( Math.Log10( Math.Abs(number) ) ) + 1;
+            var n = Math.Floor(Math.Log10(Math.Abs(number))) + 1;
             var list = new List<int>();
-            
+
             for (int i = 0; i < n; i++)
             {
                 var x = (number / Math.Pow(10, i)) % 10;
                 list.Add((int)Math.Floor(x));
             }
-            
+
+            list.Reverse();
+            return list;
+        }
+
+        public static List<int> GetDigits(this long number)
+        {
+            var n = Math.Floor(Math.Log10(Math.Abs(number))) + 1;
+            var list = new List<int>();
+
+            for (int i = 0; i < n; i++)
+            {
+                var x = (number / Math.Pow(10, i)) % 10;
+                list.Add((int)Math.Floor(x));
+            }
+
             list.Reverse();
             return list;
         }
@@ -117,6 +132,19 @@ namespace SolutionCS.Utility
             return result;
         }
 
+        public static long ConcatenateDigits(this IEnumerable<long> elements)
+        {
+            var digits = elements.ToArray();
+            var result = string.Empty;
+
+            for (int i = 0; i < digits.Length; i++)
+            {
+                result += digits[i].ToString();
+            }
+
+            return long.Parse(result);
+        }
+
         public static BigInteger ConcatenateDigits(this IEnumerable<BigInteger> elements)
         {
             var digits = elements.ToArray();
@@ -129,6 +157,30 @@ namespace SolutionCS.Utility
             }
 
             return result;
+        }
+
+        public static List<T[]> Window<T>(this T[] elements, int n)
+        {
+            if (!(n >= 1))
+            {
+                throw new ArgumentOutOfRangeException(nameof(n), "Window length must be a natural number.");
+            }
+
+            var length = elements.Length;
+
+            if (n > length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(n), "Window length is larger than array.");
+            }
+
+            var collection = new List<T[]>();
+            for (int i = 0; i <= length - n; i++)
+            {
+                var subArray = elements[i .. (i + n)];
+                collection.Add(subArray);
+            }
+
+            return collection;
         }
     }
 }

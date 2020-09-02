@@ -104,10 +104,16 @@ namespace SolutionCS.Utility
             return !digits.Contains(0) && digits.Count == 9 && digits.Distinct().Count() == 9;
         }
 
-        public static bool IsPandigital(int n)
+        public static bool IsPandigital(this int n)
         {
             var digits = n.GetDigits();
             return !digits.Contains(0) && digits.Count == 9 && digits.Distinct().Count() == 9;
+        }
+
+        public static bool IsPandigital(this long n)
+        {
+            var digits = n.GetDigits();
+            return digits.Count == 10 && digits.Distinct().Count() == 10;
         }
     }
 }

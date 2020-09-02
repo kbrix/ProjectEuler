@@ -79,6 +79,7 @@ namespace euler
                     case 39: WriteSolution("Problem 39: 'Integer right triangles'.", Problem39.Solution); break;
                     
                     case 40: WriteSolution("Problem 40: 'Champernowne's constant'.", Problem40.Solution); break;
+                    case 43: WriteSolution("Problem 43: 'Sub-string divisibility'.", Problem43.Solution); break;
                     case 44: WriteSolution("Problem 44: 'Pentagon numbers'.", Problem44.Solution); break; //slow
                     
                     case 67: WriteSolution("Problem 67: 'Maximum path sum II'.", Problem67.Solution); break;

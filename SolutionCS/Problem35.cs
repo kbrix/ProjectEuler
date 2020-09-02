@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolutionCS.Utility;
 
 namespace SolutionCS
@@ -28,7 +29,7 @@ namespace SolutionCS
                 }
             }
 
-            var digitCount = digits.Count;
+            var digitCount = digits.Count();
 
             for (int i = 1; i < digitCount; i++)
             {

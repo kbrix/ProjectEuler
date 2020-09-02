@@ -152,5 +152,35 @@ namespace SolutionTestsCS.UtilityTests
         {
             Assert.AreEqual(result, digits.ConcatenateDigits());
         }
+
+        [Test]
+        public void Window_WindowLengthTooSmall_ThrowsException()
+        {
+            var n = new[] { 1, 2, 3, 4 };
+            TestDelegate action = () => n.Window(0);
+
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(action);
+            Assert.AreEqual("Window length must be a natural number. (Parameter 'n')", ex.Message);
+        }
+
+        [Test]
+        public void Window_WindowLengthTooBig_ThrowsException()
+        {
+            var n = new[] {1, 2, 3, 4};
+            TestDelegate action = () => n.Window(5);
+
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(action);
+            Assert.AreEqual("Window length is larger than array. (Parameter 'n')", ex.Message);
+        }
+
+        [Test]
+        public void Window_ArrayOfNumbers_ReturnsCollectionOfArrays()
+        {
+            var n = new[] {1, 2, 3, 4};
+            var actualResult = n.Window(2);
+            var expectedResult = new List<int[]> { new[] { 1, 2 }, new []{2, 3}, new []{3, 4} };
+            Assert.AreEqual(3, actualResult.Count);
+            CollectionAssert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
