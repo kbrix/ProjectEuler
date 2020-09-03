@@ -17,6 +17,7 @@
     <Compile Include="Utility\NumberUtility.fs" />
     <Compile Include="Utility\PrimeUtility.fs" />
     <Compile Include="Problem48.fs" />
+    <Compile Include="Problem45.fs" />
     <Compile Include="Problem42.fs" />
     <Compile Include="Problem41.fs" />
     <Compile Include="Problem10.fs" />
