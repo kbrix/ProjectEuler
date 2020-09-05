@@ -10,7 +10,7 @@ let solutionPrinter text solution =
 
 [<EntryPoint>]
 let main argv =
-    printfn "Welcome to Kristoffer!"
+    printfn "Welcome to Kristoffer's solutions!"
     
     while true do
         Console.WriteLine("")

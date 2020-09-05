@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EulerCS\EulerCS.csproj" />
+    <ProjectReference Include="..\SolutionCS\SolutionCS.csproj" />
   </ItemGroup>
 
 </Project>
