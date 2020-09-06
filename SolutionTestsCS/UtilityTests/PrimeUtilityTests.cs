@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using SolutionCS.Utility;
 using NUnit.Framework;
 
@@ -167,7 +168,39 @@ namespace SolutionTestsCS.UtilityTests
             var result = PrimeUtility.LargestPrimeFactorUsingSieve(n, p);
             Assert.AreEqual(value, result);
         }
-        
+
+        private static IEnumerable<TestCaseData> PrimeFactors_Integers_Data
+        {
+            get
+            {
+                yield return new TestCaseData(14, new List<int> { 2, 7 });
+                yield return new TestCaseData(15, new List<int> { 3, 5 });
+                yield return new TestCaseData(644, new List<int> { 2, 2, 7, 23 });
+                yield return new TestCaseData(645, new List<int> { 3, 5, 43 });
+                yield return new TestCaseData(646, new List<int> { 2, 17, 19 });
+            }
+        }
+
+        [Test, TestCaseSource(nameof(PrimeFactors_Integers_Data))]
+        public void PrimeFactors_Integers_ReturnsPrimeFactors(int n, List<int> result)
+        {
+            CollectionAssert.AreEqual(result, n.PrimeFactors());
+        }
+
+        private static IEnumerable<TestCaseData> PrimeFactors_Longs_Data
+        {
+            get
+            {
+                yield return new TestCaseData(18848997161L, new List<long> { 18848997161L });
+            }
+        }
+
+        [Test, TestCaseSource(nameof(PrimeFactors_Longs_Data))]
+        public void PrimeFactors_Longs_ReturnsPrimeFactors(long n, List<long> result)
+        {
+            CollectionAssert.AreEqual(result, n.PrimeFactors());
+        }
+
         [Test]
         public void Divisors_Number_ReturnsDivisors()
         {

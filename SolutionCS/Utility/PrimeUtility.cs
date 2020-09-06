@@ -123,6 +123,86 @@ namespace SolutionCS.Utility
             return (n > 1) ? n : x;
         }
 
+        public static IEnumerable<int> PrimeFactors(this int n)
+        {
+            var primeFactors = new List<int>();
+
+            var sieve30 = new[] {7, 11, 13, 17, 19, 23, 29, 31};
+            var initialPrimes = new List<int>(new [] {2, 3, 5});
+            var wheelFactor = 30;
+
+            foreach (var p in initialPrimes)
+            {
+                while (n % p == 0)
+                {
+                    n /= p;
+                    primeFactors.Add(p);
+                }
+            }
+
+            var max = (int) Math.Sqrt(n);
+
+            for (int i = 0; i <= max; i += wheelFactor)
+            {
+                foreach (var sieve in sieve30)
+                {
+                    var m = i + sieve;
+                    while (n % m == 0)
+                    {
+                        n /= m;
+                        primeFactors.Add(m);
+                    }
+                }
+            }
+
+            if (n != 1)
+            {
+                primeFactors.Add(n);
+            }
+
+            return primeFactors;
+        }
+
+        public static IEnumerable<long> PrimeFactors(this long n)
+        {
+            var primeFactors = new List<long>();
+
+            var sieve30 = new long[] { 7, 11, 13, 17, 19, 23, 29, 31 };
+            var initialPrimes = new List<int>(new[] { 2, 3, 5 });
+            var wheelFactor = 30;
+
+            foreach (var p in initialPrimes)
+            {
+                while (n % p == 0)
+                {
+                    n /= p;
+                    primeFactors.Add(p);
+                }
+            }
+
+            var max = (int)Math.Sqrt(n);
+
+            for (long i = 0; i <= max; i += wheelFactor)
+            {
+                foreach (var sieve in sieve30)
+                {
+                    var m = i + sieve;
+                    while (n % m == 0)
+                    {
+                        n /= m;
+                        primeFactors.Add(m);
+                    }
+                }
+            }
+
+            if (n != 1)
+            {
+                primeFactors.Add(n);
+            }
+
+            return primeFactors;
+        }
+
         /// <summary>
         /// Returns factors/divisors of a number
         /// </summary>

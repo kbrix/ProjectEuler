@@ -78,8 +78,8 @@ let main argv =
                 | Some(43) -> solutionPrinter "Problem 43: 'Sub-string divisibility'."  SolutionCS.Problem43.Solution
                 | Some(44) -> solutionPrinter "Problem 44: 'Pentagon numbers'."  SolutionCS.Problem44.Solution
                 | Some(45) -> solutionPrinter "Problem 45: 'Triangular, pentagonal, and hexagonal'." (fun _ -> Solution.Problem45.solution(5_000_000_000L))
-                
                 | Some(46) -> solutionPrinter "Problem 46: 'Goldbach's other conjecture'." (fun _ -> SolutionCS.Problem46.Solution(10000))
+                | Some(47) -> solutionPrinter "Problem 47: 'Distinct primes factors'." Solution.Problem47.solution
                 
                 | Some(48) -> solutionPrinter "Problem 48: 'Self powers'." (fun _ -> Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))
 

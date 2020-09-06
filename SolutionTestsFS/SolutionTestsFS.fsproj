@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Compile Include="Problem48Tests.fs" />
+    <Compile Include="Problem47Tests.fs" />
     <Compile Include="Problem45Tests.fs" />
     <Compile Include="Problem42Tests.fs" />
     <Compile Include="Problem41Tests.fs" />
