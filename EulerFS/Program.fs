@@ -80,8 +80,8 @@ let main argv =
                 | Some(45) -> solutionPrinter "Problem 45: 'Triangular, pentagonal, and hexagonal'." (fun _ -> Solution.Problem45.solution(5_000_000_000L))
                 | Some(46) -> solutionPrinter "Problem 46: 'Goldbach's other conjecture'." (fun _ -> SolutionCS.Problem46.Solution(10000))
                 | Some(47) -> solutionPrinter "Problem 47: 'Distinct primes factors'." Solution.Problem47.solution
-                
                 | Some(48) -> solutionPrinter "Problem 48: 'Self powers'." (fun _ -> Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))
+                | Some(49) -> solutionPrinter "Problem 49: 'Prime permutations'." SolutionCS.Problem49.Solution
 
                 | Some(67) -> solutionPrinter "Problem 67: 'Maximum path sum II'."  SolutionCS.Problem67.Solution
                 
