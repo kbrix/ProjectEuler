@@ -83,6 +83,8 @@ let main argv =
                 | Some(48) -> solutionPrinter "Problem 48: 'Self powers'." (fun _ -> Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))
                 | Some(49) -> solutionPrinter "Problem 49: 'Prime permutations'." SolutionCS.Problem49.Solution
                 | Some(50) -> solutionPrinter "Problem 50: 'Consecutive prime sum'." (fun _ -> Solution.Problem50.solution 1000000)
+                
+                | Some(55) -> solutionPrinter "Problem 55: 'Lychrel numbers'." (Solution.Problem55.solution)
 
                 | Some(67) -> solutionPrinter "Problem 67: 'Maximum path sum II'."  SolutionCS.Problem67.Solution
                 

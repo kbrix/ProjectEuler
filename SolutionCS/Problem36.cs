@@ -1,4 +1,5 @@
 ﻿using System;
+using SolutionCS.Utility;
 
 namespace SolutionCS
 {
@@ -7,12 +8,12 @@ namespace SolutionCS
     {
         public static bool IsPalindrome(string n)
         {
-            return n == Problem4.Reverse(n);
+            return n == NumberUtility.Reverse(n);
         }
 
         private static bool IsDualPalindrome(int n)
         {
-            if (!Problem4.IsPalindrome(n))
+            if (!NumberUtility.IsPalindrome(n))
             {
                 return false;
             }
