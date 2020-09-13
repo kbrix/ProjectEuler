@@ -5,6 +5,20 @@ namespace SolutionCS.Utility
 {
     public static class ArrayExtensions
     {
+        public static int FastSum(this int[] a, int max)
+        {
+            var sum = 0;
+            foreach (var x in a)
+            {
+                sum += x;
+                if (sum > max)
+                {
+                    return 0;
+                }
+            }
+            return sum;
+        }
+
         public static long Product(this IEnumerable<int> a)
         {
             long product = 1;
@@ -27,16 +41,46 @@ namespace SolutionCS.Utility
             return num;
         }
 
-        public static int[] CumulativeSum(int[] values)
+        public static int[] MutableCumulativeSum(int[] values)
         {
             if (values == null || values.Length == 0) return new int[0];
-
+            
             for (var i = 1; i < values.Length; i++)
             {
                 values[i] = values[i - 1] + values[i];
             }
 
             return values;
+        }
+
+        public static int[] CumulativeSum(int[] values)
+        {
+            if (values == null || values.Length == 0) return new int[0];
+
+            var cumulativeSum = new int[values.Length];
+            cumulativeSum[0] = values[0];
+
+            for (var i = 1; i < values.Length; i++)
+            {
+                cumulativeSum[i] = cumulativeSum[i - 1] + values[i];
+            }
+
+            return cumulativeSum;
+        }
+
+        public static long[] CumulativeSum(long[] values)
+        {
+            if (values == null || values.Length == 0) return new long[0];
+
+            var cumulativeSum = new long[values.Length];
+            cumulativeSum[0] = values[0];
+
+            for (var i = 1; i < values.Length; i++)
+            {
+                cumulativeSum[i] = cumulativeSum[i - 1] + values[i];
+            }
+
+            return cumulativeSum;
         }
 
         public static List<List<int>> ExtractDiagonals(this int[,] m)

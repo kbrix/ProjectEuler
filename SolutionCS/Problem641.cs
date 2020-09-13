@@ -35,7 +35,7 @@ namespace SolutionCS
                 }
             }
 
-            var mCumulativeSum = ArrayExtensions.CumulativeSum(m);
+            ArrayExtensions.MutableCumulativeSum(m);
 
             var index = Enumerable.Range(1, (int) n1).Select(a => n2 / (decimal) Math.Pow(a, 3d / 2));
             var roundIndex = index.Select(x => (int) Math.Round(x, 6));
@@ -44,7 +44,7 @@ namespace SolutionCS
 
             foreach (var a in roundIndex)
             {
-                s += mCumulativeSum.ElementAt(a);
+                s += m.ElementAt(a);
             }
 
             return s;
