@@ -95,6 +95,18 @@ namespace SolutionCS.Utility
             return list;
         }
 
+        public static Stack<int> GetDigits(this BigInteger number, int baseNumber = 10)
+        {
+            var digits = new Stack<int>();
+            while (number > 0)
+            {
+                var digit = number % baseNumber;
+                digits.Push((int) digit);
+                number /= baseNumber;
+            }
+            return digits;
+        }
+
         public static IEnumerable<T> Rotate<T>(this IEnumerable<T> elements, int number = 1)
         {
             var elementsList = elements as IList<T> ?? elements.ToList();

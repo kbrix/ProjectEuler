@@ -82,7 +82,8 @@ let main argv =
                 | Some(47) -> solutionPrinter "Problem 47: 'Distinct primes factors'." Solution.Problem47.solution
                 | Some(48) -> solutionPrinter "Problem 48: 'Self powers'." (fun _ -> Solution.Problem48.solution(1000) % bigint.Pow(10I, 10))
                 | Some(49) -> solutionPrinter "Problem 49: 'Prime permutations'." SolutionCS.Problem49.Solution
-                | Some(50) -> solutionPrinter "Problem 50: 'Consecutive prime sum'." (fun _ -> Solution.Problem50.solution 1000000)
+                | Some(50) -> solutionPrinter "Problem 50: 'Consecutive prime sum'." (fun _ -> Solution.Problem50.solution 1_000_000)
+                | Some(52) -> solutionPrinter "Problem 52: 'Permuted multiples'." (fun _ -> SolutionCS.Problem52.Solution 150_000)
                 
                 | Some(55) -> solutionPrinter "Problem 55: 'Lychrel numbers'." (Solution.Problem55.solution)
 
