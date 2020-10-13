@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace SolutionCS.Utility
 {
@@ -50,6 +51,16 @@ namespace SolutionCS.Utility
             }
 
             return (int)sum;
+        }
+
+        /// <summary>
+        /// Computes the digit sum (using string conversion).
+        /// </summary>
+        /// <param name="x">A natural number.</param>
+        /// <returns>The digit sum.</returns>
+        public static int DigitSum(this BigInteger x)
+        {
+            return (int) x.ToString().Sum(char.GetNumericValue);
         }
 
         /// <summary>
