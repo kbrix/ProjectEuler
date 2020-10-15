@@ -18,7 +18,7 @@ namespace SolutionCS
                 }
             }
 
-            return maximumDigitSum;
+            return maximumDigitSum; // 99^95, 972
         }
     }
 }

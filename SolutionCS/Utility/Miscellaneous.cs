@@ -64,6 +64,16 @@ namespace SolutionCS.Utility
         }
 
         /// <summary>
+        /// Returns the number of digits.
+        /// </summary>
+        /// <param name="x">A natural number.</param>
+        /// <returns>The number of digits.</returns>
+        public static int DigitLength(this int x)
+        {
+            return x.ToString().Length;
+        }
+
+        /// <summary>
         /// Truncates number from left to right.
         /// </summary>
         /// <param name="number">The number to truncate.</param>

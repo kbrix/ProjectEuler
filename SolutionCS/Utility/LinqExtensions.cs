@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace SolutionCS.Utility
 {
@@ -63,6 +64,14 @@ namespace SolutionCS.Utility
                         x => list.Where(y => !x.Contains(y)), 
                         (x1, x2) => x1.Concat(new T[] {x2})
                     );
+        }
+
+        public static IEnumerable<IEnumerable<T>> CartesianProduct<T>(this IEnumerable<IEnumerable<T>> enumerables)
+        {
+            static IEnumerable<IEnumerable<T>> Seed() { yield return Enumerable.Empty<T>(); }
+
+            return enumerables.Aggregate(Seed(), (accumulator, enumerable) =>
+                accumulator.SelectMany(x => enumerable.Select(x.Append)));
         }
 
         public static List<int> GetDigits(this int number)
@@ -193,6 +202,11 @@ namespace SolutionCS.Utility
             }
 
             return collection;
+        }
+
+        public static int[] FindAllIndexOf<T>(this IEnumerable<T> values, Func<T, bool> predicate)
+        {
+            return values.Select((v, i) => predicate(v) ? i : -1).Where(i => i != -1).ToArray();
         }
     }
 }

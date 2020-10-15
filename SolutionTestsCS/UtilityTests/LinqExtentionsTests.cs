@@ -110,7 +110,80 @@ namespace SolutionTestsCS.UtilityTests
             Assert.AreEqual(6, permutations.Count());
             Assert.AreEqual(result, permutations);
         }
-        
+
+        [Test]
+        public void CartesianProduct_BooleanEnumerablesOfLengthTwo_ReturnsCartesianProduct()
+        {
+            var enumerables = new List<List<int>>
+            {
+                new List<int> {0, 1},
+                new List<int> {0, 1},
+            };
+
+            var expected = new List<List<int>>
+            {
+                new List<int> {0, 0},
+                new List<int> {1, 0},
+                new List<int> {0, 1},
+                new List<int> {1, 1},
+            };
+
+            var cartesianProduct = LinqExtensions.CartesianProduct(enumerables);
+            CollectionAssert.AreEquivalent(expected, cartesianProduct);
+        }
+
+        [Test]
+        public void CartesianProduct_BooleanEnumerablesOfLengthThree_ReturnsCartesianProduct()
+        {
+            var enumerables = new List<List<int>>
+            {
+                new List<int> {0, 1},
+                new List<int> {0, 1},
+                new List<int> {0, 1},
+            };
+
+            var expected = new List<List<int>>
+            {
+                new List<int> {0, 0, 0},
+                new List<int> {1, 0, 0},
+                new List<int> {0, 1, 0},
+                new List<int> {0, 0, 1},
+                new List<int> {1, 1, 0},
+                new List<int> {1, 0, 1},
+                new List<int> {0, 1, 1},
+                new List<int> {1, 1, 1},
+            };
+
+            var cartesianProduct = LinqExtensions.CartesianProduct(enumerables);
+            CollectionAssert.AreEquivalent(expected, cartesianProduct);
+        }
+
+        [Test]
+        public void CartesianProduct_BooleanEnumerablesOfLengthThree1_ReturnsCartesianProduct()
+        {
+            var enumerables = new List<List<bool>>
+            {
+                new List<bool> {false, true},
+                new List<bool> {false, true},
+                new List<bool> {false, true},
+            };
+
+            var expected = new List<List<bool>>
+            {
+                new List<bool> {false, false, false},
+                new List<bool> {true,  false, false},
+                new List<bool> {false, true,  false},
+                new List<bool> {false, false, true},
+                new List<bool> {true,  true,  false},
+                new List<bool> {true,  false, true},
+                new List<bool> {false, true,  true},
+                new List<bool> {true,  true,  true},
+            };
+
+            var cartesianProduct = LinqExtensions.CartesianProduct(enumerables);
+            CollectionAssert.AreEquivalent(expected, cartesianProduct);
+        }
+
         [Test]
         public void GetPermutations_ListOfStrings_ReturnsListOfPermutations()
         {
