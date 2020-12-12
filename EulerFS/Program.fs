@@ -86,7 +86,7 @@ let main argv =
                 | Some(51) -> solutionPrinter "Problem 51: 'Prime digit replacements'." SolutionCS.Problem51.Solution
                 | Some(52) -> solutionPrinter "Problem 52: 'Permuted multiples'." (fun _ -> SolutionCS.Problem52.Solution 150_000)
                 | Some(53) -> solutionPrinter "Problem 53: 'Combinatoric selections'." SolutionCS.Problem53.Solution
-                
+                | Some(54) -> solutionPrinter "Problem 54: 'Poker hands.'." Solution.Problem54.solution
                 | Some(55) -> solutionPrinter "Problem 55: 'Lychrel numbers'." (Solution.Problem55.solution)
 
                 | Some(67) -> solutionPrinter "Problem 67: 'Maximum path sum II'."  SolutionCS.Problem67.Solution
