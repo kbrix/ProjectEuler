@@ -22,7 +22,7 @@ namespace SolutionTestsCS
         [TestCase(14, 65)]
         [TestCase(15, 73)]
         [TestCase(16, 81)]
-        public static void SpiralDiagonalSequence_(int n, int x)
+        public static void SpiralDiagonalSequence(int n, int x)
         {
             var element = Problem28.SpiralDiagonalSequence(n);
             Assert.AreEqual(x, element);
