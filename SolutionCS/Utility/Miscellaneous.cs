@@ -34,6 +34,11 @@ namespace SolutionCS.Utility
             return word.ToCharArray().Sum(ConvertLetterToNumber);
         }
 
+        public static IEnumerable<int> Digits(this int x)
+        {
+            return x.ToString().Select(n => (int) char.GetNumericValue(n));
+        }
+
         /// <summary>
         /// Computes the digit sum in base 10.
         /// </summary>

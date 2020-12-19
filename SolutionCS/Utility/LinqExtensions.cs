@@ -36,6 +36,7 @@ namespace SolutionCS.Utility
             }
         }
 
+        // see Pengyang's answer: https://stackoverflow.com/questions/1952153/what-is-the-best-way-to-find-all-combinations-of-items-in-an-array
         public static IEnumerable<IEnumerable<T>> GetPermutationsWithRepetition<T>(IEnumerable<T> list, int length)
         {
             if (length == 1)
@@ -62,7 +63,37 @@ namespace SolutionCS.Utility
                 GetPermutations(list, length - 1)
                     .SelectMany(
                         x => list.Where(y => !x.Contains(y)), 
-                        (x1, x2) => x1.Concat(new T[] {x2})
+                        (x1, x2) => x1.Concat(new T[] { x2 })
+                    );
+        }
+
+        public static IEnumerable<IEnumerable<T>> GetCombinationsWithRepetition<T>(this IEnumerable<T> list, int length) where T : IComparable
+        {
+            if (length == 1)
+            {
+                return list.Select(t => new T[] { t });
+            }
+
+            return 
+                GetCombinationsWithRepetition(list, length - 1)
+                    .SelectMany(
+                        t => list.Where(o => o.CompareTo(t.Last()) >= 0),
+                        (t1, t2) => t1.Concat(new T[] { t2 })
+                    );
+        }
+
+        public static IEnumerable<IEnumerable<T>> GetCombinations<T>(this IEnumerable<T> list, int length) where T : IComparable
+        {
+            if (length == 1)
+            {
+                return list.Select(t => new T[] { t });
+            }
+
+            return 
+                GetCombinations(list, length - 1)
+                    .SelectMany(
+                        t => list.Where(o => o.CompareTo(t.Last()) > 0),
+                        (t1, t2) => t1.Concat(new T[] { t2 })
                     );
         }
 
