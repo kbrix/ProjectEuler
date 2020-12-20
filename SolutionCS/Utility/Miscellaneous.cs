@@ -39,6 +39,11 @@ namespace SolutionCS.Utility
             return x.ToString().Select(n => (int) char.GetNumericValue(n));
         }
 
+        public static IEnumerable<BigInteger> Digits(this BigInteger x)
+        {
+            return x.ToString().Select(n => (BigInteger) char.GetNumericValue(n));
+        }
+
         /// <summary>
         /// Computes the digit sum in base 10.
         /// </summary>
@@ -74,6 +79,16 @@ namespace SolutionCS.Utility
         /// <param name="x">A natural number.</param>
         /// <returns>The number of digits.</returns>
         public static int DigitLength(this int x)
+        {
+            return x.ToString().Length;
+        }
+
+        public static int DigitLength(this long x)
+        {
+            return x.ToString().Length;
+        }
+
+        public static int DigitLength(this BigInteger x)
         {
             return x.ToString().Length;
         }
