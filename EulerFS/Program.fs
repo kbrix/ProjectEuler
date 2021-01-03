@@ -95,6 +95,8 @@ let main argv =
                 | Some(60) -> solutionPrinter "Problem 60: 'Prime pair sets'." (fun _ -> SolutionCS.Problem60.Solution(5, 8389))
                 
                 | Some(62) -> solutionPrinter "Problem 62: 'Cubic permutations'." (fun _ -> SolutionCS.Problem62.Solution 5)
+                | Some(63) -> solutionPrinter "Problem 63: 'Powerful digit counts'." Solution.Problem63.solution
+
 
                 | Some(67) -> solutionPrinter "Problem 67: 'Maximum path sum II'."  SolutionCS.Problem67.Solution
                 
