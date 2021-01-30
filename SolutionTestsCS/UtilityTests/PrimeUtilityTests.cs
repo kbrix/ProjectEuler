@@ -201,6 +201,120 @@ namespace SolutionTestsCS.UtilityTests
             CollectionAssert.AreEqual(result, n.PrimeFactors());
         }
 
+        private static IEnumerable<TestCaseData> EulerTotientFunction_Ints_Data
+        {
+            get
+            {
+                yield return new TestCaseData(1, 1);
+                yield return new TestCaseData(2, 1);
+                yield return new TestCaseData(3, 2);
+                yield return new TestCaseData(4, 2);
+                yield return new TestCaseData(5, 4);
+                yield return new TestCaseData(6, 2);
+                yield return new TestCaseData(7, 6);
+                yield return new TestCaseData(8, 4);
+                yield return new TestCaseData(9, 6);
+                yield return new TestCaseData(10, 4);
+                yield return new TestCaseData(11, 10);
+                yield return new TestCaseData(12, 4);
+                yield return new TestCaseData(13, 12);
+                yield return new TestCaseData(14, 6);
+                yield return new TestCaseData(15, 8);
+                yield return new TestCaseData(16, 8);
+                yield return new TestCaseData(17, 16);
+                yield return new TestCaseData(18, 6);
+                yield return new TestCaseData(19, 18);
+                yield return new TestCaseData(20, 8);
+                yield return new TestCaseData(21, 12);
+                yield return new TestCaseData(22, 10);
+                yield return new TestCaseData(23, 22);
+                yield return new TestCaseData(24, 8);
+                yield return new TestCaseData(25, 20);
+                yield return new TestCaseData(26, 12);
+                yield return new TestCaseData(27, 18);
+                yield return new TestCaseData(28, 12);
+                yield return new TestCaseData(29, 28);
+                yield return new TestCaseData(30, 8);
+                yield return new TestCaseData(31, 30);
+                yield return new TestCaseData(32, 16);
+                yield return new TestCaseData(33, 20);
+                yield return new TestCaseData(34, 16);
+                yield return new TestCaseData(35, 24);
+                yield return new TestCaseData(36, 12);
+                yield return new TestCaseData(37, 36);
+                yield return new TestCaseData(38, 18);
+                yield return new TestCaseData(39, 24);
+                yield return new TestCaseData(40, 16);
+                yield return new TestCaseData(41, 40);
+                yield return new TestCaseData(42, 12);
+                yield return new TestCaseData(43, 42);
+                yield return new TestCaseData(44, 20);
+                yield return new TestCaseData(45, 24);
+                yield return new TestCaseData(46, 22);
+                yield return new TestCaseData(47, 46);
+                yield return new TestCaseData(48, 16);
+                yield return new TestCaseData(49, 42);
+                yield return new TestCaseData(50, 20);
+                yield return new TestCaseData(51, 32);
+                yield return new TestCaseData(52, 24);
+                yield return new TestCaseData(53, 52);
+                yield return new TestCaseData(54, 18);
+                yield return new TestCaseData(55, 40);
+                yield return new TestCaseData(56, 24);
+                yield return new TestCaseData(57, 36);
+                yield return new TestCaseData(58, 28);
+                yield return new TestCaseData(59, 58);
+                yield return new TestCaseData(60, 16);
+                yield return new TestCaseData(61, 60);
+                yield return new TestCaseData(62, 30);
+                yield return new TestCaseData(63, 36);
+                yield return new TestCaseData(64, 32);
+                yield return new TestCaseData(65, 48);
+                yield return new TestCaseData(66, 20);
+                yield return new TestCaseData(67, 66);
+                yield return new TestCaseData(68, 32);
+                yield return new TestCaseData(69, 44);
+                yield return new TestCaseData(70, 24);
+                yield return new TestCaseData(71, 70);
+                yield return new TestCaseData(72, 24);
+                yield return new TestCaseData(73, 72);
+                yield return new TestCaseData(74, 36);
+                yield return new TestCaseData(75, 40);
+                yield return new TestCaseData(76, 36);
+                yield return new TestCaseData(77, 60);
+                yield return new TestCaseData(78, 24);
+                yield return new TestCaseData(79, 78);
+                yield return new TestCaseData(80, 32);
+                yield return new TestCaseData(81, 54);
+                yield return new TestCaseData(82, 40);
+                yield return new TestCaseData(83, 82);
+                yield return new TestCaseData(84, 24);
+                yield return new TestCaseData(85, 64);
+                yield return new TestCaseData(86, 42);
+                yield return new TestCaseData(87, 56);
+                yield return new TestCaseData(88, 40);
+                yield return new TestCaseData(89, 88);
+                yield return new TestCaseData(90, 24);
+                yield return new TestCaseData(91, 72);
+                yield return new TestCaseData(92, 44);
+                yield return new TestCaseData(93, 60);
+                yield return new TestCaseData(94, 46);
+                yield return new TestCaseData(95, 72);
+                yield return new TestCaseData(96, 32);
+                yield return new TestCaseData(97, 96);
+                yield return new TestCaseData(98, 42);
+                yield return new TestCaseData(99, 60);
+                yield return new TestCaseData(100, 40);
+            }
+        }
+
+        [Test, TestCaseSource(nameof(EulerTotientFunction_Ints_Data))]
+        public void EulerTotientFunction_Ints_ReturnsCount(int n, int result)
+        {
+            Assert.AreEqual(result, n.EulerTotientFunction());
+        }
+
+
         [Test]
         public void Divisors_Number_ReturnsDivisors()
         {
@@ -209,7 +323,7 @@ namespace SolutionTestsCS.UtilityTests
             
             Assert.AreEqual(divisors, result);
         }
-        
+
         [Test]
         public void ProperDivisors_Number_ReturnsProperDivisors()
         {
@@ -236,7 +350,7 @@ namespace SolutionTestsCS.UtilityTests
             
             Assert.AreEqual(divisors, result);
         }
-        
+
         [Test]
         public void FactorCounter_Number_ReturnsNumberOfDivisors()
         {

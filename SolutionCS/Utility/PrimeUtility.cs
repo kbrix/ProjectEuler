@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 
 namespace SolutionCS.Utility
@@ -156,6 +157,12 @@ namespace SolutionCS.Utility
 
         public static IEnumerable<int> PrimeFactors(this int n)
         {
+            if (n < 0)
+                throw new ArgumentException("Number must be a positive number!");
+
+            if (n == 0)
+                return new List<int> { 1 };
+
             var primeFactors = new List<int>();
 
             var sieve30 = new[] {7, 11, 13, 17, 19, 23, 29, 31};
@@ -232,6 +239,36 @@ namespace SolutionCS.Utility
             }
 
             return primeFactors;
+        }
+
+        public static int EulerTotientFunction(this int n)
+        {
+            if (n < 0)
+                throw new ArgumentException("Number must be a positive number!");
+
+            if (n == 0)
+                return 1;
+
+            var primeFactors = n.PrimeFactors();
+            var primeFactorGroups = primeFactors
+                .GroupBy(p => p)
+                .Select(grp => new
+                {
+                    prime = grp.Key,
+                    multiplicity = grp.Count()
+                });
+
+            var product = 1;
+
+            foreach (var group in primeFactorGroups)
+            {
+                var prime = group.prime;
+                var multiplicity = group.multiplicity;
+                var term = (int) Math.Pow(prime, multiplicity - 1) * (prime - 1);
+                product *= term;
+            }
+
+            return product;
         }
 
         /// <summary>
