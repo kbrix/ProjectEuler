@@ -6,20 +6,21 @@ namespace SolutionCS
 {
     public static class Problem70
     {
+
         public static int Solution(int max)
         {
-            var results = new List<(int n, int phi, double ratio)>();
+            var source = Enumerable.Range(2, max);
 
-            for (int i = 2; i < max; i++)
-            {
-                int n = i;
-                int phi = i.EulerTotientFunction();
-                if (n.IsPermutationOf(phi))
+            var results = source
+                .AsParallel()
+                .Select(n =>
                 {
+                    int phi = n.EulerTotientFunction();
                     double ratio = n / (double) phi;
-                    results.Add((n, phi, ratio));
-                }
-            }
+                    return (n, phi, ratio);
+                })
+                .Where(x => x.n.IsPermutationOf(x.phi))
+                .ToList();
 
             var minRatio = results
                 .Select(x => x.ratio)
@@ -29,7 +30,7 @@ namespace SolutionCS
                 .Where(x => x.ratio == minRatio)
                 .Select(x => x.n)
                 .Single();
-            
+
             return minValue;
         }
     }
