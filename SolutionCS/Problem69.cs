@@ -9,7 +9,7 @@ namespace SolutionCS
         public static int Solution(int max)
         {
             var ratios = new List<double>();
-            for (int i = 0; i <= max; i++)
+            for (int i = 2; i <= max; i++)
             {
                 double n = i;
                 double phi = i.EulerTotientFunction();
@@ -20,7 +20,7 @@ namespace SolutionCS
 
             var maxRatio = ratios.Max();
             var maxRatioIndex = ratios.IndexOf(maxRatio);
-            return maxRatioIndex;
+            return maxRatioIndex + 2;
         }
     }
 }

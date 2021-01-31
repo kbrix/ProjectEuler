@@ -93,6 +93,21 @@ namespace SolutionCS.Utility
             return x.ToString().Length;
         }
 
+        public static bool IsPermutationOf<T>(this T x, T y)
+        {
+            var a = x.ToString();
+            var b = y.ToString();
+
+            if (a.Length != b.Length)
+            {
+                return false;
+            }
+
+            var aDesc = new string(a.OrderByDescending(s => s).ToArray());
+            var bDesc = new string(b.OrderByDescending(s => s).ToArray());
+            return aDesc == bDesc;
+        }
+
         /// <summary>
         /// Truncates number from left to right.
         /// </summary>

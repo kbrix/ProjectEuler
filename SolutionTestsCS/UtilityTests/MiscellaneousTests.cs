@@ -49,6 +49,14 @@ namespace SolutionTestsCS.UtilityTests
             Assert.AreEqual(a, result);
         }
 
+        [TestCase(87109, 79180, true)]
+        [TestCase(8951223, 5544864, false)]
+        public void IsPermutationOf_Numbers_ReturnsBoolean(int x, int y, bool b)
+        {
+            var result = x.IsPermutationOf(y);
+            Assert.AreEqual(b, result);
+        }
+
         [TestCase(3797, 0, 3797)]
         [TestCase(3797, 1, 797)]
         [TestCase(3797, 2, 97)]
