@@ -104,6 +104,7 @@ let main argv =
                 | Some(70) -> solutionPrinter "Problem 70: 'Totient permutation'."  (fun _ -> SolutionCS.Problem70.Solution 10_000_000)
                 | Some(71) -> solutionPrinter "Problem 71: 'Ordered fractions'."  Solution.Problem71.solution
                 | Some(72) -> solutionPrinter "Problem 72: 'Counting fractions'."  (fun _ -> SolutionCS.Problem72.Solution 1_000_000)
+                | Some(73) -> solutionPrinter "Problem 73: 'Counting fractions in a range'."  (fun _ -> Solution.Problem73.solution 12_000)
                 
                 | Some(641) -> solutionPrinter "Problem 641: 'A Long Row of Dice'."  SolutionCS.Problem641.Solution
                 
