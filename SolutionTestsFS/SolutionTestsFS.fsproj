@@ -13,6 +13,7 @@
     <Compile Include="Problem74Tests.fs" />
     <Compile Include="Problem73Tests.fs" />
     <Compile Include="Problem71Tests.fs" />
+    <Compile Include="Problem68Tests.fs" />
     <Compile Include="Problem63Tests.fs" />
     <Compile Include="Problem55Tests.fs" />
     <Compile Include="Problem54Tests.fs" />

@@ -99,7 +99,7 @@ let main argv =
 
 
                 | Some(67) -> solutionPrinter "Problem 67: 'Maximum path sum II'."  SolutionCS.Problem67.Solution
-
+                | Some(68) -> solutionPrinter "Problem 68: 'Magic 5-gon ring'."  Solution.Problem68.solution
                 | Some(69) -> solutionPrinter "Problem 69: 'Totient maximum'."  (fun _ -> SolutionCS.Problem69.Solution 1_000_000)
                 | Some(70) -> solutionPrinter "Problem 70: 'Totient permutation'."  (fun _ -> SolutionCS.Problem70.Solution 10_000_000)
                 | Some(71) -> solutionPrinter "Problem 71: 'Ordered fractions'."  Solution.Problem71.solution
