@@ -33,6 +33,7 @@ module Problem74 =
                 let element = factorialDigitSum x
                 f element updatedCache
         
+        // todo another cache could be implemented here where we have the elements
         let elements = f n Set.empty
         elements |> Set.count
 
