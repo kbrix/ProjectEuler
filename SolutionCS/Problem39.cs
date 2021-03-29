@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolutionCS.Utility;
 
 namespace SolutionCS
@@ -8,45 +10,46 @@ namespace SolutionCS
     // Generate all triplets in sequence, compute sum, update counters, find largest counter
     public class Problem39
     {
-        public static int Solution()
+        public static int Solution(int perimeter = 1000)
         {
-            var p = 1000;
-            var counter = new int[p];
+            var counters = TripletCounter(perimeter).ToList();
+            return counters.IndexOf(counters.Max());
+        }
 
-            var mMax = 150;
-            var kMax = 15;
+        public static IEnumerable<int> TripletCounter(int perimeter)
+        {
+            var counters = new int[perimeter + 1];
+            var mMax = (int) Math.Sqrt(perimeter / 2d);
 
             for (int m = 2; m <= mMax; m++)
             {
                 for (int n = 1; n < m; n++)
                 {
-                    for (int k = 1; k <= kMax; k++)
+                    if (IsTripletCondition(m, n))
                     {
-                        if (IsTripletCondition(m, n))
-                        {
-                            var a = k * (m * m - n * n);
-                            var b = 2 * k * m * n;
-                            var c = k * (m * m + n * n);
-                            var sum = a + b + c;
+                        var a = m * m - n * n;
+                        var b = 2 * m * n;
+                        var c = m * m + n * n;
+                        
+                        long p = a + b + c;
 
-                            if (sum <= p)
-                            {
-                                counter[sum - 1] += 1;
-                            }
+                        while (p <= perimeter)
+                        {
+                            counters[p] += 1;
+                            p += a + b + c;
                         }
                     }
                 }
             }
 
-            var list = counter.ToList();
-            return list.IndexOf(list.Max()) + 1;
+            return counters;
         }
 
         private static bool IsTripletCondition(int m, int n)
         {
             return (m - n) % 2 == 1 && // difference is odd
-                   PrimeUtility.GreatestCommonDivisor(m, n) == 1 && // co-prime
-                   !(m % 2 == 1 && n % 2 == 1); // both not odd
+                   !(m % 2 == 1 && n % 2 == 1) && // both not odd
+                   PrimeUtility.GreatestCommonDivisor(m, n) == 1; // co-prime
         }
     }
 }
