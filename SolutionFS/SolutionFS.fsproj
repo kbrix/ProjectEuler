@@ -16,6 +16,7 @@
   <ItemGroup>
     <Compile Include="Utility\NumberUtility.fs" />
     <Compile Include="Utility\PrimeUtility.fs" />
+    <Compile Include="Problem74.fs" />
     <Compile Include="Problem73.fs" />
     <Compile Include="Problem71.fs" />
     <Compile Include="Problem63.fs" />
