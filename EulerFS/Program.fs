@@ -107,6 +107,8 @@ let main argv =
                 | Some(73) -> solutionPrinter "Problem 73: 'Counting fractions in a range'."  (fun _ -> Solution.Problem73.solution 12_000)
                 | Some(74) -> solutionPrinter "Problem 74: 'Digit factorial chains'."  Solution.Problem74.solution
                 | Some(75) -> solutionPrinter "Problem 75: 'Singular integer right triangles'."  Solution.Problem75.solution
+                | Some(76) -> solutionPrinter "Problem 76: 'Counting summations'." SolutionCS.Problem76.Solution
+                | Some(77) -> solutionPrinter "Problem 77: 'Prime summations'." SolutionCS.Problem77.Solution
                 
                 | Some(641) -> solutionPrinter "Problem 641: 'A Long Row of Dice'."  SolutionCS.Problem641.Solution
                 

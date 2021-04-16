@@ -44,13 +44,23 @@ namespace SolutionCS.Utility
             return x.ToString().Select(n => (BigInteger) char.GetNumericValue(n));
         }
 
+        public static int DigitSum(this int x)
+        {
+            return x.Digits().Sum();
+        }
+
         /// <summary>
         /// Computes the digit sum in base 10.
         /// </summary>
         /// <param name="x">A natural number.</param>
         /// <returns>The digit sum.</returns>
-        public static int DigitSum(this int x, int p = 1)
+        public static int DigitSum(this int x, int p)
         {
+            if (x == 0)
+            {
+                return 0;
+            }
+
             var sum = 0d;
 
             var max = (int)Math.Floor(Math.Log10(x));
