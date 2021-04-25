@@ -6,6 +6,7 @@ namespace SolutionCS
     {
         // Coin sums, https://projecteuler.net/problem=31
         // Use the recursive formula, https://www.algorithmist.com/index.php/Coin_Change
+        // See literature: Coin change (2020). Algorithmist.
 
         public static int Counter(int n, IReadOnlyList<int> components)
         {
