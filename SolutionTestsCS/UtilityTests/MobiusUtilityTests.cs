@@ -19,7 +19,8 @@ namespace SolutionTestsCS.UtilityTests
             Assert.AreEqual(value, result);
         }
         
-        [Test] // 42 sec
+        [Test]
+        [Ignore("Too long, takes 42 seconds")]
         public void MobiusSieve_VeryLargeNumberOfDice_ReturnsLastValueInArray()
         {
             var result = MobiusUtility.MobiusSieve((int)1e9);

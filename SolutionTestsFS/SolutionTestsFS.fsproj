@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Compile Include="Utility\PrimeUtilityTests.fs" />
+    <Compile Include="Problem87Tests.fs" />
     <Compile Include="Problem78Tests.fs" />
     <Compile Include="Problem75Tests.fs" />
     <Compile Include="Problem74Tests.fs" />
