@@ -4,7 +4,7 @@ open NUnit.Framework
 
 [<Test>]
 let ``Partition function: array values (example)`` () =
-    let partitions = [| 1; 1; 2; 3; 5; 7 |]
+    let partitions = [| 1I; 1I; 2I; 3I; 5I; 7I |]
     let result = Solution.Problem78.partitionArrayValues 5
     CollectionAssert.AreEqual(partitions, result)
 
