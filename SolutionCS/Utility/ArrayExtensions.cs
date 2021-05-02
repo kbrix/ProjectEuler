@@ -19,7 +19,17 @@ namespace SolutionCS.Utility
             return sum;
         }
 
-        public static long Product(this IEnumerable<int> a)
+        public static int Product(this IEnumerable<int> a)
+        {
+            int product = 1;
+            foreach (var x in a)
+            {
+                product *= x;
+            }
+            return product;
+        }
+
+        public static long Product(this IEnumerable<long> a)
         {
             long product = 1;
             foreach (var x in a)

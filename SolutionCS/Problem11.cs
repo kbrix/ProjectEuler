@@ -31,7 +31,7 @@ namespace SolutionCS
             { 01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48 },
         };
 
-        public static long MaximumRunningProduct(this int[] a, int n)
+        public static long MaximumRunningProduct(this long[] a, int n)
         {
             if (a.Length < n)
             {
@@ -57,7 +57,7 @@ namespace SolutionCS
 
             foreach (var diagonals in listOfDiagonals)
             {
-                products.Add(diagonals.ToArray().MaximumRunningProduct(4));
+                products.Add(diagonals.Select(x => (long) x).ToArray().MaximumRunningProduct(4));
             }
 
             return products.Max();
