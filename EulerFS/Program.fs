@@ -113,6 +113,8 @@ let main argv =
                 
                 | Some(87) -> solutionPrinter "Problem 87 'Prime power triples'." (fun _ -> Solution.Problem87.solution 50_000_000L)
                 
+                | Some(122) -> solutionPrinter "Problem 122 'Efficient exponentiation'." SolutionCS.Problem122.Solution
+                
                 | Some(641) -> solutionPrinter "Problem 641: 'A Long Row of Dice'."  SolutionCS.Problem641.Solution
                 
                 | _        -> printfn "Problem not currently solved."
