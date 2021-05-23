@@ -12,10 +12,6 @@ namespace SolutionCS
         // TODO only add minimal chains for extra performance.
         public static SortedDictionary<int, HashSet<int[]>> GetAdditiveChains(int maxElement)
         {
-            var chainElements = Enumerable
-                .Range(2, maxElement - 1)
-                .ToArray();
-            
             var start = new HashSet<int[]> {new[] {1, 2}};
             var justAddedChains = start;
 
@@ -49,9 +45,8 @@ namespace SolutionCS
                         }
                     }
                 }
-                justAddedChains = newChains; 
-            // TODO the while-clause here kills performance and should optimized
-            } while (!cache.Keys.SequenceEqual(chainElements));
+                justAddedChains = newChains;
+            } while (cache.Keys.Count != maxElement - 1);
             return cache;
         }
 
