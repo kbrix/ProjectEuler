@@ -74,12 +74,5 @@ namespace SolutionTestsCS.UtilityTests
         {
             Assert.AreEqual(result, number.TruncateRightToLeft(step));
         }
-
-        [Test]
-        public void IsPandigital_ZeroToNine_ReturnsTrue()
-        {
-            var n = 1406357289L;
-            Assert.True(n.IsPandigital());
-        }
     }
 }
