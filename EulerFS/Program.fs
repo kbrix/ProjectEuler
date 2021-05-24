@@ -4,9 +4,9 @@ let solutionPrinter text solution =
     printfn text
     let stopwatch = System.Diagnostics.Stopwatch.StartNew();
     let result = solution()
-    printfn "Answer: %A" result
+    printfn $"Answer: %A{result}"
     let time = stopwatch.Elapsed.ToString("mm\\:ss\\.ffff")
-    printfn "Computation time (in mm.ss.ffff): %s." time
+    printfn $"Computation time (in mm:ss.ffff): %s{time}."
 
 [<EntryPoint>]
 let main argv =
@@ -113,6 +113,7 @@ let main argv =
                 
                 | Some(87) -> solutionPrinter "Problem 87 'Prime power triples'." (fun _ -> Solution.Problem87.solution 50_000_000L)
                 
+                | Some(104) -> solutionPrinter "Problem 104 'Pandigital Fibonacci ends'." SolutionCS.Problem104.Solution
                 | Some(122) -> solutionPrinter "Problem 122 'Efficient exponentiation'." SolutionCS.Problem122.Solution
                 
                 | Some(641) -> solutionPrinter "Problem 641: 'A Long Row of Dice'."  SolutionCS.Problem641.Solution

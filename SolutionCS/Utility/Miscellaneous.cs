@@ -179,7 +179,7 @@ namespace SolutionCS.Utility
         public static bool IsPandigital(this long n)
         {
             var digits = n.GetDigits();
-            return digits.Count == 10 && digits.Distinct().Count() == 10;
+            return !digits.Contains(0) && digits.Count == 9 && digits.Distinct().Count() == 9;
         }
     }
 }
