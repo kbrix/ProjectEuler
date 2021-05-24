@@ -4,9 +4,9 @@ let solutionPrinter text solution =
     printfn text
     let stopwatch = System.Diagnostics.Stopwatch.StartNew();
     let result = solution()
-    printfn $"Answer: %A{result}"
+    printfn "Answer: %A" result
     let time = stopwatch.Elapsed.ToString("mm\\:ss\\.ffff")
-    printfn $"Computation time (in mm:ss.ffff): %s{time}."
+    printfn "Computation time (in mm.ss.ffff): %s." time
 
 [<EntryPoint>]
 let main argv =
