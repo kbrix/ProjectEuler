@@ -112,6 +112,8 @@ let main argv =
                 | Some(78) -> solutionPrinter "Problem 78: 'Coin partitions'." (fun _ -> Solution.Problem78.solution 60_000)
                 
                 | Some(87) -> solutionPrinter "Problem 87 'Prime power triples'." (fun _ -> Solution.Problem87.solution 50_000_000L)
+
+                | Some(100) -> solutionPrinter "Problem 100 'Arranged probability'." (fun _ -> Solution.Problem100.solution 1_000_000_000_000L)
                 
                 | Some(104) -> solutionPrinter "Problem 104 'Pandigital Fibonacci ends'." SolutionCS.Problem104.Solution
                 | Some(122) -> solutionPrinter "Problem 122 'Efficient exponentiation'." SolutionCS.Problem122.Solution
