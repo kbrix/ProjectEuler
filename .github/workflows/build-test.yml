@@ -37,4 +37,4 @@ jobs:
       run: dotnet test SolutionTestsCS/SolutionTestsCS.csproj --logger "console;verbosity=detailed"
       
     - name: Test SolutionTestsFS
-      run: dotnet test SolutionTestsFS/SolutionTestsFS.csproj --logger "console;verbosity=detailed"
+      run: dotnet test SolutionTestsFS/SolutionTestsFS.fsproj --logger "console;verbosity=detailed"
