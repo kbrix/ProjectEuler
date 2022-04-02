@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/kbrix/ProjectEuler.svg?branch=master)](https://travis-ci.org/kbrix/ProjectEuler)
+![example workflow](https://github.com/kbrix/ProjectEuler/actions/workflows/build-test.yml/badge.svg)
