@@ -1,0 +1,40 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+    - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+    
+    - name: Check out repository code
+    - uses: actions/checkout@v3
+    
+    - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+      
+    - name: Install dependencies
+      run: dotnet restore
+      
+    - name: Build 
+      run: dotnet build --no-restore
+      
+    - name: Test SolutionTestsCS
+      run: dotnet test SolutionTestsCS/SolutionTestsCS.csproj --no-build --logger "console;verbosity=detailed"
+      
+    - name: Test SolutionTestsFS
+      run: dotnet test SolutionTestsFS/SolutionTestsFS.csproj --no-build --logger "console;verbosity=detailed"
