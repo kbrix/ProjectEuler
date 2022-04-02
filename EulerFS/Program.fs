@@ -113,6 +113,8 @@ let main argv =
                 
                 | Some(87) -> solutionPrinter "Problem 87 'Prime power triples'." (fun _ -> Solution.Problem87.solution 50_000_000L)
 
+                | Some(92) -> solutionPrinter "Problem 92 'Square digit chains'." (fun _ -> Solution.Problem92.solution)
+
                 | Some(100) -> solutionPrinter "Problem 100 'Arranged probability'." (fun _ -> Solution.Problem100.solution 1_000_000_000_000L)
                 
                 | Some(104) -> solutionPrinter "Problem 104 'Pandigital Fibonacci ends'." SolutionCS.Problem104.Solution
