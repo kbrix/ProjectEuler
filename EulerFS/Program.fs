@@ -93,7 +93,7 @@ let main argv =
                 | Some(58) -> solutionPrinter "Problem 58: 'Spiral primes'." SolutionCS.Problem58.Solution
                 | Some(59) -> solutionPrinter "Problem 59: 'XOR decryption'."  (fun _ -> Solution.Problem59.solution)
                 | Some(60) -> solutionPrinter "Problem 60: 'Prime pair sets'." (fun _ -> SolutionCS.Problem60.Solution(5, 8389))
-                
+                | Some(61) -> solutionPrinter "Problem 61: 'Cyclical figurate numbers'." SolutionCS.Problem61.Solution
                 | Some(62) -> solutionPrinter "Problem 62: 'Cubic permutations'." (fun _ -> SolutionCS.Problem62.Solution 5)
                 | Some(63) -> solutionPrinter "Problem 63: 'Powerful digit counts'." Solution.Problem63.solution
 

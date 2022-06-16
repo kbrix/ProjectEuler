@@ -181,5 +181,16 @@ namespace SolutionCS.Utility
             var digits = n.GetDigits();
             return !digits.Contains(0) && digits.Count == 9 && digits.Distinct().Count() == 9;
         }
+
+        /// <summary>
+        /// Concatenates two numbers.
+        /// </summary>
+        /// <param name="n">The first number.</param>
+        /// <param name="m">The second number.</param>
+        /// <returns>The concatenated number.</returns>
+        public static int Concatenate(this int n, int m)
+        {
+            return int.Parse(n.ToString() + m.ToString());
+        }
     }
 }
