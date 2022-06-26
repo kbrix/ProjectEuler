@@ -239,5 +239,31 @@ namespace SolutionCS.Utility
         {
             return values.Select((v, i) => predicate(v) ? i : -1).Where(i => i != -1).ToArray();
         }
+
+        /// <summary>
+        /// Repeats an enumerable after the first element a given number of times. 
+        /// </summary>
+        /// <param name="source">The source to repeat.</param>
+        /// <typeparam name="T">The type of the elements in the source.</typeparam>
+        /// <returns>The sequence of repeated values. The first value is not repeated.</returns>
+        public static IEnumerable<T> AfterFirstRepeatTimes<T>(this IEnumerable<T> source, int n)
+        {
+            var array = source.ToArray();
+            yield return array[0];
+
+            var times = 0;
+            var arrayTail = array[1 .. ];
+            
+            do
+            {
+                times++;
+                
+                foreach (T item in arrayTail)
+                {
+                    yield return item;
+                }
+            }
+            while (times < n);
+        }
     }
 }

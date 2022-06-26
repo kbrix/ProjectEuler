@@ -192,5 +192,79 @@ namespace SolutionCS.Utility
         {
             return int.Parse(n.ToString() + m.ToString());
         }
+        
+        /// <summary>
+        /// Check if a number is a perfect square by checking if the square root is a whole number.
+        /// </summary>
+        /// <param name="n">The number to check.</param>
+        /// <returns>Is this number a perfect square?</returns>
+        public static bool IsPerfectSquare(int n)
+        {
+            return Math.Abs(Math.Floor(Math.Sqrt(n)) - Math.Sqrt(n)) == 0;
+        }
+
+        /// <summary>
+        /// Gets the periodic continued fraction expansion in canonical form for non-prefect squares, sqrt (s).
+        /// See the algorithm <seealso href="https://en.wikipedia.org/wiki/Periodic_continued_fraction"/>.
+        /// </summary>
+        /// <param name="s">A non-prefect square.</param>
+        /// <returns>Periodic continued fraction expansion.</returns>
+        public static IEnumerable<int> GetPeriodicContinuedFractionSequence(int s)
+        {
+            if (IsPerfectSquare(s))
+                throw new ArgumentOutOfRangeException(nameof(s), "Input cannot be a perfect square.");
+
+            var m = 0;
+            var d = 1;
+            var a0 = (int)Math.Sqrt(s);
+            var a = a0;
+
+            var sequence = new List<int> { a };
+
+            do
+            {
+                m = d * a - m;
+                d = (s - m * m) / d;
+                a = (a0 + m) / d;
+                sequence.Add(a);
+            } while (
+                a != 2 * a0
+            );
+
+            return sequence;
+        }
+        
+        /// <summary>
+        /// Given canonical continued fraction expansion values, returns the numerators and denominators in the continued
+        /// fraction convergents. See G. H. Hardy and E. M. Wright, An Introduction to the Theory of Numbers, 6th ed.,
+        /// Oxford University Press, Oxford, 1979, Theorem 149, section 10.2, page 166.
+        /// </summary>
+        /// <remarks>Makes sense to use with <see cref="GetPeriodicContinuedFractionSequence"/>.</remarks>
+        /// <param name="source">Canonical continued fraction expansion values.</param>
+        /// <returns>The numerators and denominators in the continued fraction convergents.</returns>
+        public static IEnumerable<(BigInteger p, BigInteger q)> ContinuedFractionConvergents(IEnumerable<int> source)
+        {
+            var a = source.ToArray();
+            var p = new BigInteger[a.Length];
+            var q = new BigInteger[a.Length];
+
+            p[0] = a[0];
+            p[1] = a[0] * a[1] + 1;
+
+            q[0] = 1;
+            q[1] = a[1];
+
+            for (var n = 2; n < a.Length; n++)
+            {
+                p[n] = a[n] * p[n - 1] + p[n - 2];
+                q[n] = a[n] * q[n - 1] + q[n - 2];
+            }
+
+            var convergents = new List<(BigInteger p, BigInteger q)>();
+            for (var i = 0; i < a.Length; i++)
+                convergents.Add((p[i], q[i]));
+        
+            return convergents;
+        }
     }
 }

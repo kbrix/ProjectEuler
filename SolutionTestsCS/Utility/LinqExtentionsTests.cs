@@ -4,7 +4,7 @@ using System.Linq;
 using SolutionCS.Utility;
 using NUnit.Framework;
 
-namespace SolutionTestsCS.UtilityTests
+namespace SolutionTestsCS.Utility
 {
     public class LinqExtensionsTests
     {
@@ -253,6 +253,15 @@ namespace SolutionTestsCS.UtilityTests
             var actualResult = n.Window(2);
             var expectedResult = new List<int[]> { new[] { 1, 2 }, new []{2, 3}, new []{3, 4} };
             Assert.AreEqual(3, actualResult.Count);
+            CollectionAssert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public void AfterFirstRepeatTimes_Numbers_ReturnsRepeatedValues()
+        {
+            var source = new[] {1, 2, 3, 4, 5};
+            var expectedResult = new[] {1, 2, 3, 4, 5, 2, 3, 4, 5}; 
+            var actualResult = source.AfterFirstRepeatTimes(2).ToArray();
             CollectionAssert.AreEqual(expectedResult, actualResult);
         }
     }

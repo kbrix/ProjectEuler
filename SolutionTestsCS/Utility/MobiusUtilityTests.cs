@@ -2,7 +2,7 @@ using System.Linq;
 using SolutionCS.Utility;
 using NUnit.Framework;
 
-namespace SolutionTestsCS.UtilityTests
+namespace SolutionTestsCS.Utility
 {
     public class MoreUtilityTests
     {

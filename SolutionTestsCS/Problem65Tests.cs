@@ -112,17 +112,6 @@ public class Problem65Tests
     }
 
     [Test]
-    public static void ExampleTest()
-    {
-        var a = Enumerable.Range(1, 10)
-            .Select(SolutionCS.Problem65.CanonicalContinuedFractionExpansionForE)
-            .ToArray();
-        var (numerator, denominator) = SolutionCS.Problem65.ContinuedFractionConvergents(a);
-        CollectionAssert.AreEqual(new BigInteger[]{ 2, 3, 8, 11, 19, 87, 106, 193, 1264, 1457 }, numerator);
-        CollectionAssert.AreEqual(new BigInteger[] { 1, 1, 3, 4, 7, 32, 39, 71, 465, 536 }, denominator);
-    }
-
-    [Test]
     public static void SolutionTest()
     {
         Assert.AreEqual(272, SolutionCS.Problem65.Solution());

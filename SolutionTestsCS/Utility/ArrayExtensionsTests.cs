@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SolutionCS.Utility;
 using NUnit.Framework;
 
-namespace SolutionTestsCS.UtilityTests
+namespace SolutionTestsCS.Utility
 {
     public class ArrayExtensionsTests
     {

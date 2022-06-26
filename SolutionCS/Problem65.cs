@@ -35,45 +35,18 @@ public static class Problem65
         else
             return 1;
     }
-    
-    /// <summary>
-    /// Given canonical continued fraction expansion values, returns the numerators and denominators in the continued
-    /// fraction convergents. See G. H. Hardy and E. M. Wright, An Introduction to the Theory of Numbers, 6th ed.,
-    /// Oxford University Press, Oxford, 1979, Theorem 149, section 10.2, page 166.
-    /// </summary>
-    /// <param name="a">Canonical continued fraction expansion values.</param>
-    /// <returns>The numerators and denominators in the continued fraction convergents.</returns>
-    public static (BigInteger[] p, BigInteger[] q) ContinuedFractionConvergents(int[] a)
-    {
-        var p = new BigInteger[a.Length];
-        var q = new BigInteger[a.Length];
 
-        p[0] = a[0];
-        p[1] = a[0] * a[1] + 1;
-
-        q[0] = 1;
-        q[1] = a[1];
-
-        for (var n = 2; n < a.Length; n++)
-        {
-            p[n] = a[n] * p[n - 1] + p[n - 2];
-            q[n] = a[n] * q[n - 1] + q[n - 2];
-        }
-        
-        return (p, q);
-    }
-    
     public static int Solution()
     {
         var a = Enumerable.Range(1, 100)
             .Select(CanonicalContinuedFractionExpansionForE)
             .ToArray();
         
-        var (numerator, denominator) = ContinuedFractionConvergents(a);
+        var convergents = Miscellaneous.ContinuedFractionConvergents(a).ToList();
         
-        Console.WriteLine($"Numerator: '{numerator.Last()}'.");
-        Console.WriteLine($"Denominator: '{denominator.Last()}'.");
+        Console.WriteLine($"Numerator: '{convergents.Last().p}'.");
+        Console.WriteLine($"Denominator: '{convergents.Last().q}'.");
         
-        return numerator.Last().DigitSum();
+        return convergents.Last().p.DigitSum();
     }
 }
