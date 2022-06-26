@@ -48,7 +48,8 @@ namespace SolutionCS
 
         public static int Solution()
         {
-            return Enumerable.Range(1, 10_000)
+            return Enumerable
+                .Range(1, 10_000)
                 .Where(n => !IsPerfectSquare(n))
                 .Select(n =>
                 {
@@ -56,8 +57,8 @@ namespace SolutionCS
                     var period = periodicContinuedFractionSequence.Count() - 1;
                     return period;
                 })
-                .Where(p => p % 2 == 1) // Odd period
-                .Count();
+                // Odd period
+                .Count(p => p % 2 == 1);
         }
     }
 }
