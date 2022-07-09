@@ -114,6 +114,8 @@ let main argv =
                 | Some(77) -> solutionPrinter "Problem 77: 'Prime summations'." SolutionCS.Problem77.Solution
                 | Some(78) -> solutionPrinter "Problem 78: 'Coin partitions'." (fun _ -> Solution.Problem78.solution 60_000)
                 
+                | Some(85) -> solutionPrinter "Problem 85 'Counting rectangles'." (fun _ -> SolutionFS.Problem85.solution)
+                
                 | Some(87) -> solutionPrinter "Problem 87 'Prime power triples'." (fun _ -> Solution.Problem87.solution 50_000_000L)
 
                 | Some(92) -> solutionPrinter "Problem 92 'Square digit chains'." (fun _ -> Solution.Problem92.solution)
