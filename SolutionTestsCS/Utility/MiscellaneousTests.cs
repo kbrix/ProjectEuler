@@ -118,5 +118,24 @@ namespace SolutionTestsCS.Utility
                 new BigInteger[] { 1, 1, 3, 4, 7, 32, 39, 71, 465, 536 }, 
                 convergents.Select(c => c.q).ToArray());
         }
+
+        private static object[] DecimalExpansion_RationalNumber_TestData =
+        {
+            // p, q, n, wholeNumber, digits
+            new object[] { 1,   7, 6, 0, new[] { 1, 4, 2, 8, 5, 7 } },
+            new object[] { 10,  7, 6, 1, new[] { 4, 2, 8, 5, 7, 1 } },
+            new object[] { 3,  28, 8, 0, new[] { 1, 0, 7, 1, 4, 2, 8, 5 } },
+            new object[] { 99099167, 990000000,  9, 0, new[] { 1, 0, 0, 1, 0, 0, 1, 6, 8 } },
+        };
+        
+        [TestCaseSource(nameof(DecimalExpansion_RationalNumber_TestData))]
+        public static void DecimalExpansion_RationalNumber_ReturnsWholeNumberAndDecimalDigits(
+            int p, int q, int n, int wholePart, int[] digits)
+        {
+            var (actualWholePart, actualDigits) = 
+                Miscellaneous.DecimalExpansion(p, q, n);
+            Assert.AreEqual(wholePart, actualWholePart);
+            CollectionAssert.AreEqual(digits, actualDigits);
+        }
     }
 }

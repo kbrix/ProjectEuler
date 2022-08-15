@@ -244,6 +244,7 @@ namespace SolutionCS.Utility
         /// Repeats an enumerable after the first element a given number of times. 
         /// </summary>
         /// <param name="source">The source to repeat.</param>
+        /// <param name="n">The number of times to repeat.</param>
         /// <typeparam name="T">The type of the elements in the source.</typeparam>
         /// <returns>The sequence of repeated values. The first value is not repeated.</returns>
         public static IEnumerable<T> AfterFirstRepeatTimes<T>(this IEnumerable<T> source, int n)

@@ -237,12 +237,16 @@ namespace SolutionCS.Utility
         /// <summary>
         /// Given canonical continued fraction expansion values, returns the numerators and denominators in the continued
         /// fraction convergents. See G. H. Hardy and E. M. Wright, An Introduction to the Theory of Numbers, 6th ed.,
-        /// Oxford University Press, Oxford, 1979, Theorem 149, section 10.2, page 166.
+        /// Posts and Telecom Press, 2009, Theorem 149, section 10.2, page 166.
         /// </summary>
-        /// <remarks>Makes sense to use with <see cref="GetPeriodicContinuedFractionSequence"/>.</remarks>
         /// <param name="source">Canonical continued fraction expansion values.</param>
         /// <returns>The numerators and denominators in the continued fraction convergents.</returns>
-        public static IEnumerable<(BigInteger p, BigInteger q)> ContinuedFractionConvergents(IEnumerable<int> source)
+        /// <remarks>
+        /// Makes sense to use with <see cref="GetPeriodicContinuedFractionSequence"/>, possibly after repeating the
+        /// sequence (excluding the first element). The reference is found in the literature folder.
+        /// </remarks>
+        public static IEnumerable<(BigInteger p, BigInteger q)> ContinuedFractionConvergents(
+            this IEnumerable<int> source)
         {
             var a = source.ToArray();
             var p = new BigInteger[a.Length];
@@ -265,6 +269,31 @@ namespace SolutionCS.Utility
                 convergents.Add((p[i], q[i]));
         
             return convergents;
+        }
+
+        /// <summary>
+        /// Decimal expansion of of rational number inspired by long division.
+        /// </summary>
+        /// <param name="p">The numerator.</param>
+        /// <param name="q">The denominator</param>
+        /// <param name="n">The number of digits after the decimal point to return.</param>
+        /// <returns>
+        /// The whole part of the number and the digits after the decimal point for the decimal expansion.
+        /// </returns>
+        public static (int WholePart, IEnumerable<int> Digits) DecimalExpansion(
+            BigInteger p, BigInteger q, int n)
+        {
+            var wholePart = (int)(p / q);
+            var remainder = p % q;
+            var digits = new List<int>();
+            while (digits.Count < n)
+            {
+                var digit = 10 * remainder / q;
+                digits.Add((int)digit);
+                remainder = 10 * remainder % q;
+            }
+            
+            return (wholePart, digits);
         }
     }
 }
