@@ -117,6 +117,7 @@ let main argv =
                 | Some(80) -> solutionPrinter "Problem 80: 'Square root digital expansion'." (fun _ -> SolutionCS.Problem80.Solution 100)
                 
                 | Some(85) -> solutionPrinter "Problem 85 'Counting rectangles'." (fun _ -> SolutionFS.Problem85.solution)
+                | Some(86) -> solutionPrinter "Problem 86 'Cuboid Route'." (fun _ -> (Int32.MaxValue, 1_000_000) |> SolutionCS.Problem86.Solution)
                 
                 | Some(87) -> solutionPrinter "Problem 87 'Prime power triples'." (fun _ -> Solution.Problem87.solution 50_000_000L)
 
