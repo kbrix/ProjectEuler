@@ -21,7 +21,7 @@ public class Problem86
         {
             var shortestPath = ShortestPath(a, b, c);
 
-            if (Math.Abs(Math.Floor(shortestPath) - shortestPath) < 1e-16)
+            if (double.IsInteger(shortestPath))
                 count++;
 
             if (count > maximumIntegerShortestPathCount)

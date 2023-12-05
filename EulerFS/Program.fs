@@ -2,11 +2,11 @@
 
 let solutionPrinter text solution = 
     printfn text
-    let stopwatch = System.Diagnostics.Stopwatch.StartNew();
+    let timestamp = System.Diagnostics.Stopwatch.GetTimestamp()
     let result = solution()
-    printfn "Answer: %A" result
-    let time = stopwatch.Elapsed.ToString("mm\\:ss\\.ffff")
-    printfn "Computation time (in mm.ss.ffff): %s." time
+    printfn $"Answer: %A{result}"
+    let time = timestamp |> System.Diagnostics.Stopwatch.GetElapsedTime |> fun x -> x.ToString "mm\\.ss\\.fff" 
+    printfn $"Computation time (in mm.ss.fff): %s{time}."
 
 [<EntryPoint>]
 let main argv =
@@ -115,6 +115,7 @@ let main argv =
                 | Some(78) -> solutionPrinter "Problem 78: 'Coin partitions'." (fun _ -> Solution.Problem78.solution 60_000)
                 
                 | Some(80) -> solutionPrinter "Problem 80: 'Square root digital expansion'." (fun _ -> SolutionCS.Problem80.Solution 100)
+                | Some(81) -> solutionPrinter "Problem 81: 'Path Sum: Two Ways'." (fun _ -> SolutionFS.Problem81.matrix |> SolutionFS.Problem81.solution)
                 
                 | Some(85) -> solutionPrinter "Problem 85 'Counting rectangles'." (fun _ -> SolutionFS.Problem85.solution)
                 | Some(86) -> solutionPrinter "Problem 86 'Cuboid Route'." (fun _ -> (Int32.MaxValue, 1_000_000) |> SolutionCS.Problem86.Solution)

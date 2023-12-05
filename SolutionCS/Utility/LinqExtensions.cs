@@ -35,8 +35,15 @@ namespace SolutionCS.Utility
                 return Convert.ToDouble(source.ElementAt(midPoint));
             }
         }
-
-        // see Pengyang's answer: https://stackoverflow.com/questions/1952153/what-is-the-best-way-to-find-all-combinations-of-items-in-an-array
+        
+        /// <summary>
+        /// A list of {1, 2, 3, 4} and a length of 2 give an output of:
+        /// {1,1} {1,2} {1,3} {1,4} {2,1} {2,2} {2,3} {2,4} {3,1} {3,2} {3,3} {3,4} {4,1} {4,2} {4,3} {4,4}.
+        /// </summary>
+        /// <remarks>
+        /// See Pengyang's answer:
+        /// https://stackoverflow.com/questions/1952153/what-is-the-best-way-to-find-all-combinations-of-items-in-an-array
+        /// </remarks>
         public static IEnumerable<IEnumerable<T>> GetPermutationsWithRepetition<T>(IEnumerable<T> list, int length)
         {
             if (length == 1)
@@ -52,6 +59,14 @@ namespace SolutionCS.Utility
                     );
         }
 
+        /// <summary>
+        /// A list of {1, 2, 3, 4} and a length of 2 give an output of:
+        /// {1,1} {1,2} {1,3} {1,4} {2,1} {2,2} {2,3} {2,4} {3,1} {3,2} {3,3} {3,4} {4,1} {4,2} {4,3} {4,4}.
+        /// </summary>
+        /// <remarks>
+        /// See Pengyang's answer:
+        /// https://stackoverflow.com/questions/1952153/what-is-the-best-way-to-find-all-combinations-of-items-in-an-array
+        /// </remarks>
         public static IEnumerable<IEnumerable<T>> GetPermutations<T>(this IEnumerable<T> list, int length)
         {
             if (length == 1)
@@ -67,6 +82,14 @@ namespace SolutionCS.Utility
                     );
         }
 
+        /// <summary>
+        /// A list of {1, 2, 3, 4} and a length of 2 give an output of:
+        /// {1,1} {1,2} {1,3} {1,4} {2,2} {2,3} {2,4} {3,3} {3,4} {4,4}.
+        /// </summary>
+        /// <remarks>
+        /// See Pengyang's answer:
+        /// https://stackoverflow.com/questions/1952153/what-is-the-best-way-to-find-all-combinations-of-items-in-an-array
+        /// </remarks>
         public static IEnumerable<IEnumerable<T>> GetCombinationsWithRepetition<T>(this IEnumerable<T> list, int length) where T : IComparable
         {
             if (length == 1)
@@ -82,6 +105,14 @@ namespace SolutionCS.Utility
                     );
         }
 
+        /// <summary>
+        /// A list of {1, 2, 3, 4} and a length of 2 give an output of:
+        /// {1,2} {1,3} {1,4} {2,3} {2,4} {3,4}.
+        /// </summary>
+        /// <remarks>
+        /// See Pengyang's answer:
+        /// https://stackoverflow.com/questions/1952153/what-is-the-best-way-to-find-all-combinations-of-items-in-an-array
+        /// </remarks>
         public static IEnumerable<IEnumerable<T>> GetCombinations<T>(this IEnumerable<T> list, int length) where T : IComparable
         {
             if (length == 1)
