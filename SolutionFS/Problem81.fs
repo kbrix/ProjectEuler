@@ -90,7 +90,7 @@ let solution (M: int array2d) =
     // The rest
     for i in 1 .. I do
         for j in 1 .. J do
-            S[i, j] <- M[i, j] + min S[i - 1, j] S[i, j - 1]
+            S[i, j] <- M[i, j] + min S[i - 1, j] (*down*) S[i, j - 1] (*right*)
             
     S[I, J]
     

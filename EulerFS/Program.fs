@@ -124,6 +124,8 @@ let main argv =
 
                 | Some(92) -> solutionPrinter "Problem 92 'Square digit chains'." (fun _ -> Solution.Problem92.solution)
 
+                | Some(96) -> solutionPrinter "Problem 96 'Su Doku'." (fun _ -> SolutionCS.Problem96.Solution())
+                
                 | Some(100) -> solutionPrinter "Problem 100 'Arranged probability'." (fun _ -> Solution.Problem100.solution 1_000_000_000_000L)
                 
                 | Some(104) -> solutionPrinter "Problem 104 'Pandigital Fibonacci ends'." SolutionCS.Problem104.Solution
