@@ -122,6 +122,7 @@ let main argv =
                 
                 | Some(87) -> solutionPrinter "Problem 87 'Prime power triples'." (fun _ -> Solution.Problem87.solution 50_000_000L)
 
+                | Some(91) -> solutionPrinter "Problem 91 'Right Triangles with Integer Coordinates'." (fun _ -> SolutionCS.Problem91.Solution(50))
                 | Some(92) -> solutionPrinter "Problem 92 'Square digit chains'." (fun _ -> Solution.Problem92.solution)
 
                 | Some(96) -> solutionPrinter "Problem 96 'Su Doku'." (fun _ -> SolutionCS.Problem96.Solution())
